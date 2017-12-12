@@ -125,6 +125,7 @@ bindsym XF86MonBrightnessUp exec light -A 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86MonBrightnessDown exec light -U 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n
 
+exec --no-startup-id dunst
 
 focus_follows_mouse no
 

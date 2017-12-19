@@ -153,6 +153,7 @@ mode "resize" {
         bindsym Control+Shift+j move window down 50px
 
         bindsym g move window position 0 0
+        bindsym z move window position center
 
         bindsym Return mode "default"
         bindsym Escape mode "default"

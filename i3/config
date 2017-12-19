@@ -32,8 +32,8 @@ for_window [class=".*"] border none
 
 floating_modifier $mod
 
-bindsym Print exec ~/.config/i3/lock pixelated
-bindsym Shift+Print exec ~/.config/i3/lock seamless
+bindsym XF86Tools exec ~/.config/i3/lock pixelated
+bindsym Shift+XF86Tools exec ~/.config/i3/lock seamless
 
 bindsym $mod+Return exec urxvt
 
@@ -55,6 +55,8 @@ bindsym Shift+End mark "end_scratch", move scratchpad, fullscreen
 bindsym End [con_mark="end_scratch"] scratchpad show
 
 
+bindsym Print exec scrot
+bindsym Shift+Print exec scrot --select
 
 bindsym $mod+slash exec search
 

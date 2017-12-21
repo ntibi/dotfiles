@@ -242,7 +242,7 @@
     background = "#333333"
     foreground = "#dddddd"
     frame_color = "#555555"
-    timeout = 10
+    timeout = 120
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
@@ -250,7 +250,7 @@
     background = "#333333"
     foreground = "#eeeeee"
     frame_color = "#999999"
-    timeout = 10
+    timeout = 120
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 

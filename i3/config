@@ -181,6 +181,7 @@ tray_output primary
 
 
 exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
+exec --no-startup-id compton --config ~/.config/i3/acpi
 
 exec --no-startup-id "xset r rate 200 20"
 exec --no-startup-id setxkbmap -option "compose:caps"

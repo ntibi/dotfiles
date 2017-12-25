@@ -2,6 +2,8 @@ URxvt*depth: 32
 URxvt*background: #333333
 URxvt*foreground: #eeeeee
 
+URxvt*geometry: 80x25
+
 URxvt*scrollBar: false
 
 URxvt*termName: xterm-256color
@@ -10,6 +12,8 @@ URxvt*buffered: true
 URxvt*fading: 10
 
 URxvt*visualBell: false
+
+URxvt.internalBorder: 0
 
 URxvt.keysym.Control-Up:    \033[1;5A
 URxvt.keysym.Control-Down:  \033[1;5B
@@ -25,3 +29,8 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 URxvt.urgentOnBell: True
+
+URxvt.letterSpace: 0
+
+URxvt.saveLines: 1048576
+

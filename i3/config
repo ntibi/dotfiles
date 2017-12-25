@@ -155,6 +155,9 @@ mode "resize" {
         bindsym g move window position 0 0
         bindsym z move window position center
 
+        bindsym equal resize grow width 192px, resize grow height 108px, move window position center
+        bindsym minus resize shrink width 192px, resize shrink height 108px, move window position center
+
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }

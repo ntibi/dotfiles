@@ -1,5 +1,5 @@
 URxvt*depth: 32
-URxvt*background: #333333
+URxvt*background: [100]#333333
 URxvt*foreground: #eeeeee
 
 URxvt*geometry: 80x25

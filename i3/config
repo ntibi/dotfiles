@@ -128,6 +128,9 @@ bindsym XF86MonBrightnessDown exec light -U 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 
+bindsym $mod+bracketright exec transset --inc 0.05 -a
+bindsym $mod+bracketleft exec transset --dec 0.05 -a
+
 exec --no-startup-id dunst
 
 focus_follows_mouse no

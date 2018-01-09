@@ -56,7 +56,7 @@ bindsym End [con_mark="end_scratch"] scratchpad show
 
 
 bindsym Print exec scrot
-bindsym Shift+Print exec scrot --select
+bindsym --release Shift+Print exec scrot --select
 
 bindsym $mod+slash exec search
 

@@ -55,8 +55,10 @@ bindsym Shift+End mark "end_scratch", move scratchpad, fullscreen
 bindsym End [con_mark="end_scratch"] scratchpad show
 
 
-bindsym Print exec scrot
-bindsym --release Shift+Print exec scrot --select
+bindsym Print exec gnome-screenshot
+bindsym --release Shift+Print exec gnome-screenshot -a
+# bindsym Print exec scrot
+# bindsym --release Shift+Print exec scrot --select
 
 bindsym $mod+slash exec search
 

@@ -1,0 +1,46 @@
+"*":
+  "atom-ctags":
+    autoBuildTagsWhenActive: true
+    cmdArgs: "--exclude=node-modules"
+  "bracket-matcher":
+    highlightMatchingLineNumber: true
+  core:
+    audioBeep: false
+    autoHideMenuBar: true
+    packagesWithKeymapsDisabled: [
+      "git-diff"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "monokai"
+    ]
+  "dark-flat-ui": {}
+  editor:
+    fontSize: 13
+    scrollPastEnd: true
+    showIndentGuide: true
+    zoomFontWhenCtrlScrolling: false
+  "exception-reporting":
+    userId: "da7b3eb6-abf8-465c-b3ca-510d9686d588"
+  "git-diff": {}
+  "linter-eslint":
+    fixOnSave: true
+  "linter-ui-default": {}
+  minimap:
+    smoothScrolling: false
+  "node-debugger": {}
+  "one-dark-ui":
+    hideDockButtons: true
+  "rainbow-delimiters": {}
+  "vim-mode-plus":
+    ignoreCaseForFind: true
+    ignoreCaseForSearch: true
+    keymapCCToChangeInnerSmartWord: true
+    keymapSToSelect: true
+    keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
+    keymapYToYankToLastCharacterOfLine: true
+    useSmartcaseForFind: true
+    useSmartcaseForSearch: true
+  welcome:
+    showOnStartup: false

@@ -1,0 +1,31 @@
+".source.js":
+  "console.log":
+    "prefix": "log"
+    "body": "console.log(${1:})"
+  "error":
+    "prefix": "error"
+    "body": "if (error) return callback(error)"
+  "error, result":
+    "prefix": "err"
+    "body": """(error, result) => {
+        if (error) return callback(error)
+        ${1}
+      }"""
+  "ntibi":
+    "prefix": "ntibi"
+    "body": "1002053411"
+  "()":
+    "prefix": "()"
+    "body": "(${1:error}) => {${2}}"
+  "require":
+    "prefix": "require"
+    "body": "const ${1} = require(\"./${1}\")"
+  "verifyString":
+    "prefix": "verifyString"
+    "body": "const ${1} = req.verifyString(req, \"$1\"${2:, true})"
+  "verifyInt":
+    "prefix": "verifyInt"
+    "body": "const ${1} = req.verifyInt(req, \"$1\"${2:, true})"
+  "verifyBool":
+    "prefix": "verifyBool"
+    "body": "const ${1} = req.verifyBool(req, \"$1\"${2:, true})"

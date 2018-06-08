@@ -1,0 +1,28 @@
+.editor .cursor {
+  border-left-width: 2px;
+}
+
+atom-text-editor .gutter .line-number.git-line-modified {
+    border-left: 3px solid #FF9000;
+    padding-left: calc(0.5em - 2px);
+}
+
+atom-text-editor .gutter .line-number.git-line-deleted {
+    border-left: 3px solid #EF1010;
+    padding-left: calc(0.5em - 2px);
+}
+
+atom-text-editor .gutter .line-number.git-line-added {
+    border-left: 3px solid #40CE14;
+    padding-left: calc(0.5em - 2px);
+}
+
+atom-text-editor .highlight {
+  color: red;
+}
+
+atom-panel.modal::after {
+  opacity: 0.3;
+  background: #020202;
+  -webkit-animation: none;
+}

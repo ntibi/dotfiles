@@ -7,9 +7,6 @@
   core:
     audioBeep: false
     autoHideMenuBar: true
-    packagesWithKeymapsDisabled: [
-      "git-diff"
-    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"

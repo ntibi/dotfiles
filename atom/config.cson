@@ -18,6 +18,7 @@
   "dark-flat-ui": {}
   editor:
     fontSize: 13
+    lineHeight: 1.4
     scrollPastEnd: true
     showIndentGuide: true
     zoomFontWhenCtrlScrolling: false

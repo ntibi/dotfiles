@@ -13,9 +13,16 @@
   'g d': 'git-diff-details:toggle-git-diff-details'
   'g u': 'git-diff-details:undo'
 
+'.workspace':
+  '\\ g': 'github:toggle-git-tab-focus'
+
+'.github-StagingView':
+  '\\ g': 'github:toggle-git-tab'
+
 'atom-text-editor':
   'J': 'vim-mode-plus:previous-tab'
   'K': 'vim-mode-plus:next-tab'
+  '\\ e': 'fuzzy-finder:toggle-file-finder'
 
 'body':
   'J': 'vim-mode-plus:previous-tab'
@@ -24,9 +31,6 @@
   '\\ d': 'core:close'
   '\\ D': 'pane:reopen-closed-item'
   'ctrl-n': 'tree-view:toggle'
-
-'.platform-linux':
-  '\\ e': 'fuzzy-finder:toggle-file-finder'
 
 # 'atom-workspace atom-text-editor:not([mini])':
 

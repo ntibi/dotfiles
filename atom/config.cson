@@ -1,4 +1,6 @@
 "*":
+  "atom-clock":
+    showTooltip: true
   "atom-ctags":
     autoBuildTagsWhenActive: true
     cmdArgs: "--exclude=node-modules"
@@ -7,6 +9,9 @@
   core:
     audioBeep: false
     autoHideMenuBar: true
+    disabledPackages: [
+      "linter"
+    ]
     packagesWithKeymapsDisabled: [
       "git-diff-details"
     ]
@@ -27,6 +32,7 @@
   "git-diff": {}
   "git-diff-details":
     enableSyntaxHighlighting: true
+  "highlight-selected": {}
   "linter-eslint":
     fixOnSave: true
   "linter-ui-default": {}

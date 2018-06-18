@@ -29,6 +29,7 @@
     zoomFontWhenCtrlScrolling: false
   "exception-reporting":
     userId: "da7b3eb6-abf8-465c-b3ca-510d9686d588"
+  "fuzzy-finder": {}
   "git-diff": {}
   "git-diff-details":
     enableSyntaxHighlighting: true

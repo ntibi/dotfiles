@@ -27,7 +27,6 @@
   'g d': 'git-diff-details:toggle-git-diff-details'
   'g u': 'git-diff-details:undo'
 
-
 'atom-text-editor:not(.insert-mode)':
   '\\ n': 'application:new-file'
   '\\ e': 'fuzzy-finder:toggle-file-finder'

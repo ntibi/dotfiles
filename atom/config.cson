@@ -4,6 +4,10 @@
   "atom-ctags":
     autoBuildTagsWhenActive: true
     cmdArgs: "--exclude=node-modules"
+  "atom-ternjs":
+    inlineFnCompletion: false
+  "autocomplete-modules":
+    webpack: true
   "bracket-matcher":
     highlightMatchingLineNumber: true
   core:

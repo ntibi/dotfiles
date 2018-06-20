@@ -10,13 +10,13 @@
   '\\ D': 'pane:reopen-closed-item'
   '\\ c': 'editor:toggle-line-comments'
 
-  # '\\ o': 'custom:insert-line' #TODO
-
   '\\ g g': 'github:toggle-git-tab-focus'
   '\\ G': 'github:toggle-git-tab'
   '\\ g c': 'github:commit'
   '\\ g p': 'github:pull'
   '\\ g f': 'github:fetch'
+
+  # '\\ o': 'custom:insert-line' #TODO
 
   'enter': 'intentions:confirm'
 
@@ -27,8 +27,16 @@
   'g d': 'git-diff-details:toggle-git-diff-details'
   'g u': 'git-diff-details:undo'
 
+
+'atom-text-editor:not(.insert-mode)':
   '\\ n': 'application:new-file'
   '\\ e': 'fuzzy-finder:toggle-file-finder'
+
+'atom-text-editor[data-grammar~=js]:not(.insert-mode)':
+  'g d': 'atom-ternjs:definition'
+  'g r': 'atom-ternjs:references'
+  'g b': 'atom-ternjs:navigateBack'
+  'g n': 'atom-ternjs:navigateForward'
 
 'body':
   'ctrl-n': 'tree-view:toggle'

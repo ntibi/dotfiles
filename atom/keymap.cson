@@ -3,7 +3,6 @@
   'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
   'ctrl-j': 'vim-mode-plus:scroll-half-screen-down'
   'ctrl-k': 'vim-mode-plus:scroll-half-screen-up'
-  'ctrl': 'unset!'
   'J': 'vim-mode-plus:previous-tab'
   'K': 'vim-mode-plus:next-tab'
   '\\ w': 'core:save'
@@ -33,6 +32,7 @@
 
 'body':
   'ctrl-n': 'tree-view:toggle'
+  'ctrl': 'unset!'
 
 '.fuzzy-finder atom-text-editor[mini]':
   'ctrl-j': 'core:move-down'

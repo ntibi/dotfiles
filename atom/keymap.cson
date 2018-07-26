@@ -3,8 +3,11 @@
   'ctrl-e': 'vim-mode-plus:move-to-last-character-of-line'
   'ctrl-j': 'vim-mode-plus:scroll-half-screen-down'
   'ctrl-k': 'vim-mode-plus:scroll-half-screen-up'
+  'ctrl-l': 'vim-mode-plus:redraw-cursor-line-at-middle'
   'J': 'vim-mode-plus:previous-tab'
   'K': 'vim-mode-plus:next-tab'
+  'H': 'editor:outdent-selected-rows'
+  'L': 'editor:indent-selected-rows'
   '\\ w': 'core:save'
   '\\ d': 'core:close'
   '\\ D': 'pane:reopen-closed-item'
@@ -15,6 +18,12 @@
   '\\ g c': 'github:commit'
   '\\ g p': 'github:pull'
   '\\ g f': 'github:fetch'
+
+  '+': 'vim-mode-plus:increase'
+  '-': 'vim-mode-plus:decrease'
+
+  'tab': 'pane:show-next-recently-used-item'
+  'shift-tab': 'pane:show-previous-recently-used-item'
 
   # '\\ o': 'custom:insert-line' #TODO
 
@@ -27,19 +36,21 @@
   'g d': 'git-diff-details:toggle-git-diff-details'
   'g u': 'git-diff-details:undo'
 
+  '\\ j': 'jsdoc:block'
+  '\\ t': 'zentabs:cleanup'
+
 'atom-text-editor:not(.insert-mode)':
   '\\ n': 'application:new-file'
   '\\ e': 'fuzzy-finder:toggle-file-finder'
 
 'atom-text-editor[data-grammar~=js]:not(.insert-mode)':
-  'g d': 'atom-ternjs:definition'
+  'g f': 'atom-ternjs:definition'
   'g r': 'atom-ternjs:references'
   'g b': 'atom-ternjs:navigateBack'
   'g n': 'atom-ternjs:navigateForward'
 
 'body':
   'ctrl-n': 'tree-view:toggle'
-  'ctrl': 'unset!'
 
 '.fuzzy-finder atom-text-editor[mini]':
   'ctrl-j': 'core:move-down'

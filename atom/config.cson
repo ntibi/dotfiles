@@ -60,6 +60,8 @@
     hideDockButtons: true
   "rainbow-delimiters": {}
   "status-bar": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   "vim-mode-plus":
     ignoreCaseForFind: true
     ignoreCaseForSearch: true

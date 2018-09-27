@@ -133,6 +133,11 @@ bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "en
 bindsym $mod+bracketright exec transset --inc 0.05 -a
 bindsym $mod+bracketleft exec transset --dec 0.05 -a
 
+bindsym $mod+Left move workspace to output left
+bindsym $mod+Right move workspace to output right
+bindsym $mod+Up move workspace to output up
+bindsym $mod+Down move workspace to output down
+
 exec --no-startup-id dunst
 
 focus_follows_mouse no

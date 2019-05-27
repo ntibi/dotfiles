@@ -23,7 +23,9 @@
     autoHideMenuBar: true
     disabledPackages: [
       "linter"
+      "language-gfm"
     ]
+    fileSystemWatcher: "experimental"
     packagesWithKeymapsDisabled: [
       "git-diff-details"
     ]
@@ -45,13 +47,15 @@
     zoomFontWhenCtrlScrolling: false
   "exception-reporting":
     userId: "da7b3eb6-abf8-465c-b3ca-510d9686d588"
+  "file-watcher": {}
   "fuzzy-finder": {}
   "git-diff": {}
   "git-diff-details":
     enableSyntaxHighlighting: true
   "highlight-selected": {}
   "linter-eslint":
-    fixOnSave: true
+    autofix:
+      fixOnSave: true
   "linter-ui-default": {}
   minimap:
     smoothScrolling: false

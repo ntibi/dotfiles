@@ -39,6 +39,8 @@
   '\\ j': 'jsdoc:block'
   '\\ t': 'zentabs:cleanup'
 
+  'c r': 'refactor:rename'
+
 'atom-text-editor:not(.insert-mode)':
   '\\ n': 'application:new-file'
   '\\ e': 'fuzzy-finder:toggle-file-finder'

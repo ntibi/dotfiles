@@ -124,7 +124,15 @@ bindsym $mod+Shift+e exec i3-msg exit
 
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+ ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%- ; exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q sset Master toggle ; exec pkill -RTMIN+1 i3blocks
+# bindsym XF86AudioMute exec amixer -q sset Master toggle ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMicMute exec pavucontrol
+for_window [class="Pavucontrol"] floating enable, resize set 300 200, move position center
+
+
+bindsym $mod+minus exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
+bindsym $mod+equal exec playerctl next ; exec pkill -RTMIN+1 i3blocks
+bindsym $mod+p exec playerctl play-pause ; exec pkill -RTMIN+1 i3blocks
+
 bindsym XF86MonBrightnessUp exec light -A 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86MonBrightnessDown exec light -U 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n

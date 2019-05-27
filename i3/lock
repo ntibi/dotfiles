@@ -7,14 +7,14 @@ scrot -z $IMAGE
 case $1 in
     "blurred")
         convert $IMAGE -filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500% $IMAGE
-        i3lock -u -i $IMAGE
+        i3lock -e -u -i $IMAGE
         ;;
     "seamless")
-        i3lock -p win -u -i $IMAGE
+        i3lock -e -p win -u -i $IMAGE
         ;;
     *|"pixelated")
         convert $IMAGE -scale 10% -scale 1000% $IMAGE
-        i3lock -u -i $IMAGE
+        i3lock -e -u -i $IMAGE
         ;;
 esac
 

@@ -66,6 +66,8 @@ bindsym $mod+q kill
 
 bindsym $mod+x exec dmenu_run -b -sb "#555555"
 
+bindsym $mod+e exec rofi -show run
+
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up

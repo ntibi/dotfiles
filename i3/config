@@ -126,6 +126,8 @@ bindsym $mod+Shift+e exec i3-msg exit
 
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+ ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%- ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+ ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%- ; exec pkill -RTMIN+1 i3blocks
 # bindsym XF86AudioMute exec amixer -q sset Master toggle ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 300 200, move position center
@@ -137,6 +139,8 @@ bindsym $mod+p exec playerctl play-pause ; exec pkill -RTMIN+1 i3blocks
 
 bindsym XF86MonBrightnessUp exec light -A 3 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86MonBrightnessDown exec light -U 3 ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec light -A 10 ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec light -U 10 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 bindsym XF86Display exec xrandr --auto

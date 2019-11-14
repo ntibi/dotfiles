@@ -1,0 +1,20 @@
+URxvt.font: xft:DejaVu Sans Mono:size=10
+URxvt.boldFont: xft:DejaVu Sans Mono:size=10
+
+URxvt*saveLines: 65536
+
+URxvt*scrollBar: false
+
+URxvt*foreground: #c0c0c0
+URxvt*background: #333333
+
+URxvt.letterSpace: -0.5
+
+# unbind A-s
+URxvt.perl-ext-common: "default, -searchable-scrollback"
+
+# enable C-arrow
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C

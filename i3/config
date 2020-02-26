@@ -133,8 +133,8 @@ bindsym XF86AudioMicMute exec pavucontrol
 for_window [class="Pavucontrol"] floating enable, resize set 300 200, move position center
 
 
-bindsym $mod+minus exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
-bindsym $mod+equal exec playerctl next ; exec pkill -RTMIN+1 i3blocks
+bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
+bindsym $mod+bracketright exec playerctl next ; exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec playerctl play-pause ; exec pkill -RTMIN+1 i3blocks
 
 bindsym XF86MonBrightnessUp exec light -A 3 ; exec pkill -RTMIN+1 i3blocks
@@ -145,8 +145,7 @@ bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 bindsym XF86Display exec xrandr --auto
 
-bindsym $mod+bracketright exec transset --inc 0.05 -a
-bindsym $mod+bracketleft exec transset --dec 0.05 -a
+bindsym $mod+backslash exec transset --toggle 0.1 -a
 
 bindsym $mod+Left move workspace to output left
 bindsym $mod+Right move workspace to output right

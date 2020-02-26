@@ -1,0 +1,140 @@
+{
+    "rust.mode": "rls",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "vim.leader": "\\",
+    "vim.normalModeKeyBindingsNonRecursive": [
+      {
+        "before": [
+          "K"
+        ],
+        "commands": [
+          "workbench.action.nextEditor"
+        ],
+      },
+      {
+        "before": [
+          "J"
+        ],
+        "commands": [
+          "workbench.action.previousEditor"
+        ],
+      },
+      {
+        "before": [
+          "<C-n>"
+        ],
+        "commands": [
+          "workbench.action.toggleSidebarVisibility"
+        ],
+      },
+      {
+        "before": [
+          "<leader>",
+          "w"
+        ],
+        "commands": [
+          "workbench.action.files.save"
+        ],
+      },
+      {
+        "before": [
+          "<leader>",
+          ";"
+        ],
+        "commands": [
+          "workbench.action.openNextRecentlyUsedEditorInGroup"
+        ]
+      },
+      {
+        "before": [
+          ">"
+        ],
+        "commands": [
+          "editor.action.indentLines"
+        ]
+      },
+      {
+        "before": [
+          "<"
+        ],
+        "commands": [
+          "editor.action.outdentLines"
+        ]
+      },
+      {
+        "before": [
+          "<leader>",
+          "d"
+        ],
+        "commands": [
+          "workbench.action.closeActiveEditor"
+        ]
+      },
+      {
+        "before": [
+          "<C-k>"
+        ],
+        "commands": [
+          "cursorPageUp"
+        ]
+      },
+      {
+        "before": [
+          "<C-j>"
+        ],
+        "commands": [
+          "cursorPageDown"
+        ]
+      },
+      {
+        "before": [
+          "<leader>", "c"
+        ],
+        "commands": [
+          "editor.action.commentLine"
+        ]
+      },
+      {
+        "before": [
+          "<C-e>"
+        ],
+        "commands": [
+          "cursorEnd"
+        ]
+      },
+      {
+        "before": [
+          "<C-a>"
+        ],
+        "commands": [
+          "cursorHome"
+        ]
+      }
+      {
+        "before": [
+          "g", "j"
+        ],
+        "after": [
+          "J"
+        ]
+      }
+    ],
+    "vim.visualModeKeyBindings": [
+      {
+        "before": [
+          "<leader>",
+          "c"
+        ],
+        "commands": [
+          "editor.action.commentLine"
+        ]
+      }
+    ],
+    "window.menuBarVisibility": "hidden",
+    "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/*/**": true
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always"
+}

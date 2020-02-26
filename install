@@ -1,0 +1,70 @@
+#!/bin/bash
+
+git pull
+
+REPO_BASE="$(dirname "$PWD/$0")"
+REPO_BASE="$(readlink -f $REPO_BASE)"
+TRASH=$(date --iso-8601=seconds)
+TRASH="/tmp/old.config/$TRASH"
+mkdir -p $TRASH
+
+DEF_C="$(tput sgr0)"
+
+C_BLACK="$(tput setaf 0)"
+C_RED="$(tput setaf 1)"
+C_GREEN="$(tput setaf 2)"
+C_YELLOW="$(tput setaf 3)"
+C_BLUE="$(tput setaf 4)"
+C_PURPLE="$(tput setaf 5)"
+C_CYAN="$(tput setaf 6)"
+C_WHITE="$(tput setaf 7)"
+C_GREY="$(tput setaf 8)"
+
+function config()
+{
+    TO_INSTALL=$1
+    INSTALL_PATH=$2
+    if [ -e $INSTALL_PATH -a ! -L $INSTALL_PATH ]; then
+        echo ${C_RED}!!!${DEF_C} ${C_GREEN}$INSTALL_PATH${DEF_C} already exists and is not a symbolic link
+        echo moving ${C_GREEN}$INSTALL_PATH${DEF_C} to ${C_GREEN}$TRASH${DEF_C}
+        mv $INSTALL_PATH $TRASH
+    fi
+    if [ ! -L $INSTALL_PATH ]; then
+        echo ${C_RED}!!!${DEF_C} no symbolic link ${C_GREEN}$INSTALL_PATH${DEF_C}, linking
+        ln -s $REPO_BASE/$TO_INSTALL $INSTALL_PATH
+    fi
+}
+
+config_xdefaults() { config Xdefaults ~/.Xdefaults; }
+config_i3() { config i3 ~/.config/i3; }
+config_gitconfig() { config gitconfig ~/.gitconfig; }
+config_dunst() { config dunst ~/.config/dunst; }
+config_compton() { config compton ~/.config/compton; }
+
+case $1 in
+  Xdefaults|xdefaults)
+      config_xdefaults
+    ;;
+  i3)
+      config_i3
+    ;;
+  git|gitconfig)
+      config_gitconfig
+    ;;
+  dunst)
+      config_dunst
+    ;;
+  compton)
+      config_compton
+    ;;
+  ""|all)
+      config_xdefaults
+      config_i3
+      config_gitconfig
+      config_dunst
+      config_compton
+    ;;
+  *)
+    echo $1 not found
+    ;;
+esac

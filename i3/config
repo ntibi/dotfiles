@@ -64,7 +64,7 @@ bindsym $mod+slash exec search
 
 bindsym $mod+q kill
 
-bindsym $mod+x exec dmenu_run -b -sb "#555555"
+bindsym $mod+x exec i3-dmenu-desktop --dmenu='dmenu -i -b -sb "#555555"'
 
 bindsym $mod+e exec rofi -show run
 

@@ -49,7 +49,7 @@ bindsym $mod+m scratchpad show
 bindsym $mod+Shift+m move scratchpad
 
 # fast 1 window scratchpads
-bindsym Home exec ~/.config/i3/quick instance scratchpad "urxvt -name scratchpad -e vi $HOME/TODO"
+bindsym Home exec ~/.config/i3/quick instance scratchpad "urxvt -name scratchpad -e nvim $HOME/TODO"
 for_window [instance="scratchpad"] floating enable, resize set 1000 800, move position center, sticky enable
 bindsym End exec ~/.config/i3/quick class Spotify spotify
 for_window [class="Spotify"] floating enable, resize set 1000 800, move position center, sticky enable

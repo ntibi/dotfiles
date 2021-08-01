@@ -54,7 +54,6 @@ for_window [instance="scratchpad"] floating enable, resize set 1000 800, move po
 bindsym End exec ~/.config/i3/quick class Spotify spotify
 for_window [class="Spotify"] floating enable, resize set 1000 800, move position center, sticky enable
 
-
 bindsym Print exec gnome-screenshot
 bindsym --release Shift+Print exec gnome-screenshot -a
 # bindsym Print exec scrot

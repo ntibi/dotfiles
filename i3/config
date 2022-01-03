@@ -33,7 +33,9 @@ for_window [class=".*"] border none
 floating_modifier $mod
 
 bindsym XF86Tools exec ~/.config/i3/lock pixelated
+bindsym XF86Favorites exec ~/.config/i3/lock pixelated
 bindsym Shift+XF86Tools exec ~/.config/i3/lock seamless
+bindsym Shift+XF86Favorites exec ~/.config/i3/lock seamless
 
 bindsym $mod+Return exec urxvt
 
@@ -50,9 +52,9 @@ bindsym $mod+Shift+m move scratchpad
 
 # fast 1 window scratchpads
 bindsym Home exec ~/.config/i3/quick instance scratchpad "urxvt -name scratchpad -e nvim $HOME/TODO"
-for_window [instance="scratchpad"] floating enable, resize set 1000 800, move position center, sticky enable
+for_window [instance="scratchpad"] floating enable, resize set 2000 1600, move position center, sticky enable
 bindsym End exec ~/.config/i3/quick class Spotify spotify
-for_window [class="Spotify"] floating enable, resize set 1000 800, move position center, sticky enable
+for_window [class="Spotify"] floating enable, resize set 2000 1600, move position center, sticky enable
 
 bindsym Print exec gnome-screenshot
 bindsym --release Shift+Print exec gnome-screenshot -a
@@ -130,19 +132,19 @@ bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+ ; exec pkill -RTMIN+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%- ; exec pkill -RTMIN+1 i3blocks
 bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+ ; exec pkill -RTMIN+1 i3blocks
 bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%- ; exec pkill -RTMIN+1 i3blocks
-# bindsym XF86AudioMute exec amixer -q sset Master toggle ; exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMicMute exec pavucontrol
-for_window [class="Pavucontrol"] floating enable, resize set 300 200, move position center
+bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
+bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
+for_window [instance="alsamixer"] floating enable, resize set 1200 800, move position 2640 1550
 
 
 bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
 bindsym $mod+bracketright exec playerctl next ; exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec playerctl play-pause ; exec pkill -RTMIN+1 i3blocks
 
-bindsym XF86MonBrightnessUp exec light -A 3 ; exec pkill -RTMIN+1 i3blocks
-bindsym XF86MonBrightnessDown exec light -U 3 ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86MonBrightnessUp exec light -A 10 ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86MonBrightnessDown exec light -U 10 ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5.12 ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5.12 ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec xbacklight -inc 1 ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec xbacklight -dec 1 ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 bindsym XF86Display exec xrandr --auto
@@ -153,6 +155,12 @@ bindsym $mod+Left move workspace to output left
 bindsym $mod+Right move workspace to output right
 bindsym $mod+Up move workspace to output up
 bindsym $mod+Down move workspace to output down
+
+bindsym Control+space exec dunstctl close
+bindsym Control+Shift+space exec dunstctl close-all
+bindsym Control+Shift+period exec dunstctl history-pop
+bindsym Control+period exec dunstctl context
+
 
 exec --no-startup-id dunst
 
@@ -271,9 +279,3 @@ exec --no-startup-id "xset r rate 200 20"
 exec --no-startup-id setxkbmap -option "compose:caps"
 
 exec --no-startup-id hsetroot -solid "#333333"
-
-# exec --no-startup-id xinput set-prop "TPPS/2 IBM TrackPoint" TODO: auto middle key when trackpoint is used
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 0
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 1
-

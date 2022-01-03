@@ -41,6 +41,7 @@ config_gitconfig() { config gitconfig ~/.gitconfig; }
 config_dunst() { config dunst ~/.config/dunst; }
 config_compton() { config compton ~/.config/compton; }
 config_userdir() { config user-dirs.dirs ~/.config/user-dirs.dirs; }
+config_compose() { config XCompose ~/.XCompose; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -60,6 +61,9 @@ case $1 in
     ;;
   userdir)
       config_userdir
+    ;;
+  compose)
+      config_compose
     ;;
   ""|all)
       config_xdefaults

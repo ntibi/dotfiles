@@ -11,7 +11,7 @@
 
 set $mod Mod4
 
-font pango:monospace 9
+font pango:monospace 10
 
 set $color-light-gray #acacac
 set $color-medium-gray #777777
@@ -29,6 +29,7 @@ client.placeholder      $color-black      $color-black      $color-white        
 client.background       $color-black      $color-black      $color-black        $color-black
 
 for_window [class=".*"] border none
+for_window [class=".*"] default_border pixel 0
 
 floating_modifier $mod
 
@@ -56,8 +57,8 @@ for_window [instance="scratchpad"] floating enable, resize set 2000 1600, move p
 bindsym End exec ~/.config/i3/quick class Spotify spotify
 for_window [class="Spotify"] floating enable, resize set 2000 1600, move position center, sticky enable
 
-bindsym Print exec gnome-screenshot
-bindsym --release Shift+Print exec gnome-screenshot -a
+bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +%s).png
+bindsym --release Shift+Print exec grim -g $(slurp) $(xdg-user-dir PICTURES)/$(date +%s).png
 # bindsym Print exec scrot
 # bindsym --release Shift+Print exec scrot --select
 
@@ -123,7 +124,7 @@ bindsym $mod+n move workspace to output right
 bindsym $mod+Shift+n move workspace to output left
 
 bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r swaymsg reload
 bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -141,10 +142,10 @@ bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
 bindsym $mod+bracketright exec playerctl next ; exec pkill -RTMIN+1 i3blocks
 bindsym $mod+p exec playerctl play-pause ; exec pkill -RTMIN+1 i3blocks
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 5.12 ; exec pkill -RTMIN+1 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 5.12 ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86MonBrightnessUp exec xbacklight -inc 1 ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86MonBrightnessDown exec xbacklight -dec 1 ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessUp exec brightnessctl --quiet --exponent=20 set +1% ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86MonBrightnessDown exec brightnessctl --quiet --exponent=20 set 1%- ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessUp exec brightnessctl --quiet set +5% ; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86MonBrightnessDown exec brightnessctl --quiet set 5%- ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 bindsym XF86Display exec xrandr --auto
@@ -266,16 +267,25 @@ bar {
         inactive_workspace #222222 #222222 #888888
         urgent_workspace   #ff0000 #993333 #aaaaaa
     }
-# status_command i3status -c ~/.config/i3/i3status.conf
-status_command i3blocks -c ~/.config/i3/i3blocks.conf
-tray_output primary
+    # status_command i3status -c ~/.config/i3/i3status.conf
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    tray_output primary
 }
 
+output "eDP-1" {
+    scale 2
+    subpixel rgb
+    background #2f2f2f solid_color
+}
 
-exec --no-startup-id compton --config ~/.config/compton/compton.conf -b
-exec --no-startup-id ~/.config/i3/acpi
+input "1:1:AT_Translated_Set_2_keyboard" {
+    repeat_rate 20
+    repeat_delay 200
+    xkb_options compose:caps
+}
 
-exec --no-startup-id "xset r rate 200 20"
-exec --no-startup-id setxkbmap -option "compose:caps"
-
-exec --no-startup-id hsetroot -solid "#333333"
+input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" {
+    tap enabled
+    dwt enabled
+    pointer_accel 0.2
+}

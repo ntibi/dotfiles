@@ -42,6 +42,7 @@ config_dunst() { config dunst ~/.config/dunst; }
 config_compton() { config compton ~/.config/compton; }
 config_userdir() { config user-dirs.dirs ~/.config/user-dirs.dirs; }
 config_compose() { config XCompose ~/.XCompose; }
+config_fontconfig() { config fontconfig ~/.config/fontconfig; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -65,6 +66,9 @@ case $1 in
   compose)
       config_compose
     ;;
+  fontconfig)
+      config_fontconfig
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -72,6 +76,8 @@ case $1 in
       config_dunst
       config_compton
       config_userdir
+      config_compose
+      config_fontconfig
     ;;
   *)
     echo $1 not found

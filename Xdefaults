@@ -50,9 +50,7 @@ Xft.hinting:   true
 Xft.autohint:  false
 Xft.rgba:      rgb
 Xft.hintstyle: hintfull
-Xft.dpi:       196
 Xft.lcdfilter: lcddefault
-
 
 
 ! https://terminal.sexy/

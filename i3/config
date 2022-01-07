@@ -28,6 +28,8 @@ client.urgent           $color-alert      $color-alert      $color-black        
 client.placeholder      $color-black      $color-black      $color-white        $color-black
 client.background       $color-black      $color-black      $color-black        $color-black
 
+set $term urxvt
+
 for_window [class=".*"] border none
 for_window [class=".*"] default_border pixel 0
 
@@ -38,9 +40,9 @@ bindsym XF86Favorites exec ~/.config/i3/lock pixelated
 bindsym Shift+XF86Tools exec ~/.config/i3/lock seamless
 bindsym Shift+XF86Favorites exec ~/.config/i3/lock seamless
 
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec $term
 
-bindsym $mod+Shift+Return exec urxvt -name scratchterm
+bindsym $mod+Shift+Return exec $term -name scratchterm
 for_window [instance="scratchterm"] move scratchpad, scratchpad show
 
 
@@ -53,12 +55,14 @@ bindsym $mod+Shift+m move scratchpad
 
 # fast 1 window scratchpads
 bindsym Home exec ~/.config/i3/quick instance scratchpad "urxvt -name scratchpad -e nvim $HOME/TODO"
-for_window [instance="scratchpad"] floating enable, resize set 2000 1600, move position center, sticky enable
+for_window [instance="scratchpad"] floating enable, resize set 1000 800, move position center, sticky enable
 bindsym End exec ~/.config/i3/quick class Spotify spotify
-for_window [class="Spotify"] floating enable, resize set 2000 1600, move position center, sticky enable
+for_window [class="Spotify"] floating enable, resize set 1000 800, move position center, sticky enable
 
-bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +%s).png
-bindsym --release Shift+Print exec grim -g $(slurp) $(xdg-user-dir PICTURES)/$(date +%s).png
+# bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +%s).png
+# bindsym --release Shift+Print exec grim -g $(slurp) $(xdg-user-dir PICTURES)/$(date +%s).png
+bindsym Print exec /usr/share/sway/scripts/grimshot save output $(xdg-user-dir PICTURES)/$(date +%s).png
+bindsym --release Shift+Print exec /usr/share/sway/scripts/grimshot save area $(xdg-user-dir PICTURES)/$(date +%s).png
 # bindsym Print exec scrot
 # bindsym --release Shift+Print exec scrot --select
 
@@ -123,8 +127,7 @@ bindsym $mod+semicolon workspace back_and_forth
 bindsym $mod+n move workspace to output right
 bindsym $mod+Shift+n move workspace to output left
 
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+r swaymsg reload
+bindsym $mod+Shift+r sway reload
 bindsym $mod+Shift+e exec i3-msg exit
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -135,7 +138,7 @@ bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+ ; exec pkill 
 bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%- ; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
 bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
-for_window [instance="alsamixer"] floating enable, resize set 1200 800, move position 2640 1550
+for_window [instance="alsamixer"] floating enable, resize set 600 400, move position 1320 779
 
 
 bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks
@@ -181,15 +184,15 @@ mode "resize" {
         bindsym Shift+k resize shrink height 100px
         bindsym Shift+l resize grow width 100px
 
-        bindsym Control+h move window left 20px
-        bindsym Control+l move window right 20px
-        bindsym Control+k move window up 20px
-        bindsym Control+j move window down 20px
+        bindsym Control+h move left 50px
+        bindsym Control+l move right 50px
+        bindsym Control+k move up 50px
+        bindsym Control+j move down 50px
 
-        bindsym Control+Shift+h move window left 50px
-        bindsym Control+Shift+l move window right 50px
-        bindsym Control+Shift+k move window up 50px
-        bindsym Control+Shift+j move window down 50px
+        bindsym Control+Shift+h move left 1px
+        bindsym Control+Shift+l move right 1px
+        bindsym Control+Shift+k move up 1px
+        bindsym Control+Shift+j move down 1px
 
         bindsym g move window position 0 0
         bindsym z move window position center
@@ -223,8 +226,8 @@ set $openmenu "[t]erm [T]mux [f]irefox [q]ill"
 bindsym $mod+Escape mode $openmenu
 
 mode $openmenu {
-    bindsym t exec urxvt
-    bindsym Shift+t exec urxvt -e tmux
+    bindsym t exec $term
+    bindsym Shift+t exec $term -e tmux
     bindsym f exec firefox
     bindsym q kill
 

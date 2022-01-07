@@ -5,20 +5,13 @@ FIELD=$1 # window field to search
 VALUE=$2 # value to match in FIELD
 BINARY=$3 # command line or binary path
 
-cur_id=$(( $(xprop -root | awk '/_NET_ACTIVE_WINDOW\(WINDOW\)/{print $NF}') ))
-dst_id=$(echo -ne "i3-ipc\x0\x0\x0\x0\x4\x0\x0\x0" |
-    socat STDIO UNIX-CLIENT:$(i3 --get-socketpath) |
-    tail -c +15 |
-    jq ".nodes[].nodes[].nodes[] | .floating_nodes[], .nodes[] | .nodes[] | select(.window_properties.$FIELD == \"$VALUE\") | .window" |
-    head -1)
+cur_id=$(swaymsg -t get_tree | jq ".. | objects | select(.focused == true) | .window" | head -1)
+dst_id=$(swaymsg -t get_tree | jq ".. | objects | select(.window_properties.$FIELD == \"$VALUE\") | .window" | head -1)
 
 if [ -z $dst_id ]; then
-    echo 1 >> ~/.log
     $BINARY&
 elif [ $cur_id -eq $dst_id ]; then
-    echo 2 >> ~/.log
     i3-msg "[id=$dst_id] move scratchpad"
 else
-    echo 3 >> ~/.log
     i3-msg "[id=$dst_id] focus"
 fi

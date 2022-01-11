@@ -2,16 +2,16 @@
 
 IMAGE="$(mktemp).png"
 
-scrot -z $IMAGE
+grim $IMAGE
 
 case $1 in
     "blurred")
         convert $IMAGE -filter Gaussian -resize 20% -define filter:sigma=1.5 -resize 500% $IMAGE
-        waylock -i $IMAGE
+        swaylock -i $IMAGE
         ;;
     *|"pixelated")
         convert $IMAGE -scale 2% -scale 5000% $IMAGE
-        waylock -i $IMAGE
+        swaylock -i $IMAGE
         ;;
 esac
 

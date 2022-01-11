@@ -2,7 +2,8 @@
 	default = current
 [user]
 	name = ntibi
-	email = nicolastibi@yahoo.fr
+	email = ntibi@protonmail.com
+	signingkey = 78DB41DF339A269C8F091271754AF58E4E84717A
 [core]
 	editor = nvim
 	excludesfile = /home/ntibi/.gitignore_global
@@ -12,3 +13,7 @@
     wdiff = diff --word-diff=color
 [rerere]
 	enabled = true
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg

@@ -165,8 +165,7 @@ bindsym $mod+Right move workspace to output right
 bindsym $mod+Up move workspace to output up
 bindsym $mod+Down move workspace to output down
 
-bindsym Control+space exec dunstctl close
-bindsym Control+Shift+space exec dunstctl close-all
+bindsym Control+Shift+space exec dunstctl close
 bindsym Control+Shift+period exec dunstctl context
 
 

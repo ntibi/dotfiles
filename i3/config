@@ -129,16 +129,15 @@ bindsym $mod+Shift+n move workspace to output left
 
 bindsym $mod+Shift+r sway reload
 bindsym $mod+Shift+e exec i3-msg exit
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+ ; exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%- ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+ ; exec pkill -RTMIN+1 i3blocks
-bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%- ; exec pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec pamixer --increase 1; exec pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec pamixer --decrease 1; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioRaiseVolume exec pamixer --increase 5; exec pkill -RTMIN+1 i3blocks
+bindsym Shift+XF86AudioLowerVolume exec pamixer --decrease 5; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
 bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
-for_window [instance="alsamixer"] floating enable, resize set 600 400, move position 1320 779
+for_window [instance="alsamixer"] floating enable, resize set 300 400, move position 1620 779
 
 
 bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks

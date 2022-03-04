@@ -169,6 +169,7 @@ bindsym Control+Shift+period exec dunstctl context
 
 
 exec --no-startup-id dunst
+exec dbus-update-activation-environment --systemd DISPLAY
 
 focus_follows_mouse no
 

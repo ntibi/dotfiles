@@ -127,7 +127,7 @@ bindsym $mod+semicolon workspace back_and_forth
 bindsym $mod+n move workspace to output right
 bindsym $mod+Shift+n move workspace to output left
 
-bindsym $mod+Shift+r sway reload
+bindsym $mod+Shift+r exec i3-msg reload
 bindsym $mod+Shift+e exec i3-msg exit
 
 
@@ -167,12 +167,7 @@ bindsym $mod+Down move workspace to output down
 bindsym Control+Shift+space exec dunstctl close
 bindsym Control+Shift+period exec dunstctl context
 
-
-exec --no-startup-id dunst
-exec dbus-update-activation-environment --systemd DISPLAY
-
 focus_follows_mouse no
-
 
 bindsym $mod+r mode "resize"
 
@@ -278,26 +273,34 @@ bar {
     tray_output primary
 }
 
-output "eDP-1" {
-    scale 2
-    subpixel rgb
-}
+exec --no-startup-id dunst
+exec --no-startup-id setxkbmap -option compose:caps
+exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY
+exec --no-startup-id xset r rate 200 20
+exec --no-startup-id hsetroot -solid "#2f2f2f"
+exec --no-startup-id "xmodmap ~/.Xmodmap"
+exec --no-startup-id picom --config ~/.config/compton/compton.conf
 
-# input "1:1:AT_Translated_Set_2_keyboard" { }
-# input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" { }
-
-output * {
-    background #2f2f2f solid_color
-}
-
-input * {
-    # kbd
-    repeat_rate 20
-    repeat_delay 200
-    xkb_options compose:caps
-
-    # touchpad
-    tap enabled
-    dwt enabled
-    pointer_accel 0.2
-}
+# output "eDP-1" {
+    # scale 2
+    # subpixel rgb
+# }
+# 
+# # input "1:1:AT_Translated_Set_2_keyboard" { }
+# # input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" { }
+# 
+# output * {
+    # background #2f2f2f solid_color
+# }
+# 
+# input * {
+    # # kbd
+    # repeat_rate 20
+    # repeat_delay 200
+    # xkb_options compose:caps
+# 
+    # # touchpad
+    # tap enabled
+    # dwt enabled
+    # pointer_accel 0.2
+# }

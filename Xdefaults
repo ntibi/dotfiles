@@ -45,6 +45,7 @@ URxvt.keysym.C-minus: font-size:decrease
 URxvt.keysym.C-plus: font-size:increase
 URxvt.keysym.C-equal: font-size:reset
 
+Xft.dpi: 192
 Xft.antialias: true
 Xft.hinting:   true
 Xft.autohint:  false

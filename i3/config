@@ -137,7 +137,7 @@ bindsym Shift+XF86AudioRaiseVolume exec pamixer --increase 5; exec pkill -RTMIN+
 bindsym Shift+XF86AudioLowerVolume exec pamixer --decrease 5; exec pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
 bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
-for_window [instance="alsamixer"] floating enable, resize set 300 400, move position 1620 779
+for_window [instance="alsamixer"] floating enable, resize set 600 800, move position 3240 1550
 
 
 bindsym $mod+bracketleft exec playerctl previous ; exec pkill -RTMIN+1 i3blocks

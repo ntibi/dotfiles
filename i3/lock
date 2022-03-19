@@ -2,12 +2,12 @@
 
 IMAGE="$(mktemp).png"
 
-grim -s 0.05 $IMAGE
+gnome-screenshot -f $IMAGE
 
 case $1 in
     *|"pixelated")
-        convert $IMAGE -scale 4000% $IMAGE
-        swaylock -i $IMAGE
+        convert $IMAGE -scale 2% -scale 5000% $IMAGE
+        i3lock -i $IMAGE
         ;;
 esac
 

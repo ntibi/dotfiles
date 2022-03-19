@@ -59,12 +59,10 @@ for_window [instance="scratchpad"] floating enable, resize set 2000 1600, move p
 bindsym End exec ~/.config/i3/quick class Spotify spotify
 for_window [class="Spotify"] floating enable, resize set 1000 800, move position center, sticky enable
 
-# bindsym Print exec grim $(xdg-user-dir PICTURES)/$(date +%s).png
-# bindsym --release Shift+Print exec grim -g $(slurp) $(xdg-user-dir PICTURES)/$(date +%s).png
-bindsym Print exec /usr/share/sway/scripts/grimshot save output $(xdg-user-dir PICTURES)/$(date +%s).png
-bindsym --release Shift+Print exec /usr/share/sway/scripts/grimshot save area $(xdg-user-dir PICTURES)/$(date +%s).png
 # bindsym Print exec scrot
 # bindsym --release Shift+Print exec scrot --select
+bindsym Print exec gnome-screenshot
+bindsym --release Shift+Print exec gnome-screenshot -a
 
 bindsym $mod+slash exec search
 

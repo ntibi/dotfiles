@@ -152,11 +152,11 @@ bindsym XF86WLAN exec wicd-client -n
 bindsym XF86Bluetooth exec awk '/status/{print ($2 =="enabled" ? "disable" : "enable")}' /proc/acpi/ibm/bluetooth > /proc/acpi/ibm/bluetooth; exec pkill -RTMIN+1 i3block
 bindsym XF86Display exec xrandr --auto
 
-# bindsym $mod+backslash exec transset --toggle 0.1 -a
-set $alphamark "α"
-set $transparency 0.5
-for_window [con_mark=$alphamark] opacity set $transparency
-bindsym $mod+backslash mark --toggle "$alphamark" ; [con_id=__focused__] opacity set 1 ; [con_mark=$alphamark con_id=__focused__] opacity set $transparency
+bindsym $mod+backslash exec transset --toggle 0.1 -a
+# set $alphamark "α"
+# set $transparency 0.5
+# for_window [con_mark=$alphamark] opacity set $transparency
+# bindsym $mod+backslash mark --toggle "$alphamark" ; [con_id=__focused__] opacity set 1 ; [con_mark=$alphamark con_id=__focused__] opacity set $transparency
 
 
 bindsym $mod+Left move workspace to output left

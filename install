@@ -43,6 +43,7 @@ config_compton() { config compton ~/.config/compton; }
 config_userdir() { config user-dirs.dirs ~/.config/user-dirs.dirs; }
 config_compose() { config XCompose ~/.XCompose; }
 config_fontconfig() { config fontconfig ~/.config/fontconfig; }
+config_touchegg() { config touchegg ~/.config/touchegg; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -69,6 +70,9 @@ case $1 in
   fontconfig)
       config_fontconfig
     ;;
+  touchegg)
+      config_touchegg
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -78,6 +82,7 @@ case $1 in
       config_userdir
       config_compose
       config_fontconfig
+      config_touchegg
     ;;
   *)
     echo $1 not found

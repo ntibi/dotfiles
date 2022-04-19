@@ -283,6 +283,7 @@ exec --no-startup-id xset r rate 200 20
 exec --no-startup-id hsetroot -solid "#2f2f2f"
 exec --no-startup-id "xmodmap ~/.Xmodmap"
 exec --no-startup-id picom -b --config ~/.config/compton/compton.conf
+exec --no-startup-id touchegg
 
 # output "eDP-1" {
     # scale 2

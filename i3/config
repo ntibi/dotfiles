@@ -276,6 +276,9 @@ bar {
     # status_command i3status -c ~/.config/i3/i3status.conf
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
     tray_output primary
+    font pango:monospace 9
+    bindsym button4 nop
+    bindsym button5 nop
 }
 
 exec --no-startup-id dunst
@@ -292,10 +295,6 @@ exec --no-startup-id alsactl --file ~/.config/asound.state restore
     # scale 2
     # subpixel rgb
 # }
-# 
-# # input "1:1:AT_Translated_Set_2_keyboard" { }
-# # input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" { }
-# 
 # output * {
     # background #2f2f2f solid_color
 # }

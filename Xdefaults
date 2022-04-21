@@ -51,7 +51,8 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
-Xft.dpi: 192
+Xft.dpi: 96
+
 Xft.antialias: true
 Xft.hinting:   true
 Xft.autohint:  false

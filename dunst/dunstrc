@@ -39,10 +39,10 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 16
+    padding = 8
 
     # Horizontal padding.
-    horizontal_padding = 28
+    horizontal_padding = 14
 
     # Defines width in pixels of frame around the notification window.
     # Set to 0 to disable.
@@ -69,8 +69,7 @@
 
     ### Text ###
 
-    font = DejaVu sans mono 18
-    # font = Monospace 10
+    font = DejaVu sans mono 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.

@@ -45,6 +45,10 @@ URxvt.keysym.C-minus: font-size:decrease
 URxvt.keysym.C-plus: font-size:increase
 URxvt.keysym.C-equal: font-size:reset
 
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
 Xft.dpi: 192
 Xft.antialias: true
 Xft.hinting:   true

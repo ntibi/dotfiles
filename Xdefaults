@@ -3,6 +3,8 @@ URxvt*background: [100]#333333
 URxvt*foreground: #eeeeee
 
 URxvt*geometry: 80x25
+# for https://bugs.archlinux.org/task/77062
+URxvt*geometry: 400x400
 
 URxvt*scrollBar: false
 

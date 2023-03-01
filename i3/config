@@ -72,6 +72,8 @@ bindsym $mod+x exec i3-dmenu-desktop --dmenu='dmenu -i -b -sb "#555555"'
 
 bindsym $mod+e exec rofi -show run
 
+bindsym $mod+g exec rofi -show window
+
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up

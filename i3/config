@@ -281,7 +281,7 @@ bar {
 exec --no-startup-id dunst
 exec --no-startup-id setxkbmap -option compose:caps
 exec --no-startup-id dbus-update-activation-environment --systemd DISPLAY
-exec --no-startup-id xset r rate 200 20
+exec --no-startup-id xset r rate 150 50
 exec --no-startup-id hsetroot -solid "#2f2f2f"
 exec --no-startup-id "xmodmap ~/.Xmodmap"
 # exec --no-startup-id picom -b --config ~/.config/compton/compton.conf

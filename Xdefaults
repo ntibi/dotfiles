@@ -51,6 +51,8 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
+URxvt.keysym.Shift-Return: string:\n
+
 Xft.dpi: 192
 Xft.antialias: true
 Xft.hinting:   true

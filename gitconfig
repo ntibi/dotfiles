@@ -27,3 +27,7 @@
     insteadOf = https://github.com/
 [interactive]
 	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	hunk-header-decoration-style = none
+

@@ -28,7 +28,7 @@ client.urgent           $color-alert      $color-alert      $color-black        
 client.placeholder      $color-black      $color-black      $color-white        $color-black
 client.background       $color-black      $color-black      $color-black        $color-black
 
-set $term urxvt
+set $term alacritty
 
 for_window [class=".*"] border none
 for_window [class=".*"] default_border pixel 0
@@ -42,7 +42,7 @@ bindsym Shift+XF86Favorites exec ~/.config/i3/lock seamless
 
 bindsym $mod+Return exec $term
 
-bindsym $mod+Shift+Return exec $term -name scratchterm
+bindsym $mod+Shift+Return exec $term --class scratchterm
 for_window [instance="scratchterm"] move scratchpad, scratchpad show
 
 
@@ -54,7 +54,7 @@ bindsym $mod+m scratchpad show
 bindsym $mod+Shift+m move scratchpad
 
 # fast 1 window scratchpads
-bindsym Home exec ~/.config/i3/quick instance scratchpad "urxvt -name scratchpad -e nvim $HOME/TODO"
+bindsym Home exec ~/.config/i3/quick instance scratchpad "$term --class scratchpad -e nvim $HOME/TODO"
 for_window [instance="scratchpad"] floating enable, resize set 2000 1600, move position center, sticky enable
 bindsym End exec ~/.config/i3/quick class Spotify "spotify --force-device-scale-factor=1.5"
 for_window [class="Spotify"] floating enable, resize set 2000 1600, move position center, sticky enable
@@ -137,8 +137,8 @@ bindsym XF86AudioRaiseVolume exec pamixer --increase 1; exec pkill -RTMIN+1 i3bl
 bindsym XF86AudioLowerVolume exec pamixer --decrease 1; exec pkill -RTMIN+1 i3blocks
 bindsym Shift+XF86AudioRaiseVolume exec pamixer --increase 5; exec pkill -RTMIN+1 i3blocks
 bindsym Shift+XF86AudioLowerVolume exec pamixer --decrease 5; exec pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
-bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "urxvt -name alsamixer -e alsamixer"
+bindsym XF86AudioMute exec ~/.config/i3/quick instance alsamixer "$term --class alsamixer -e alsamixer"
+bindsym XF86AudioMicMute exec ~/.config/i3/quick instance alsamixer "$term --class alsamixer -e alsamixer"
 for_window [instance="alsamixer"] floating enable, resize set 600 800, move position 3240 1550
 
 
@@ -288,26 +288,16 @@ exec --no-startup-id "xmodmap ~/.Xmodmap"
 exec --no-startup-id touchegg
 exec --no-startup-id alsactl --file ~/.config/asound.state restore
 
-# output "eDP-1" {
-    # scale 2
-    # subpixel rgb
-# }
-# 
-# # input "1:1:AT_Translated_Set_2_keyboard" { }
-# # input "1739:52824:SYNA8008:00_06CB:CE58_Touchpad" { }
-# 
-# output * {
-    # background #2f2f2f solid_color
-# }
-# 
-# input * {
-    # # kbd
-    # repeat_rate 20
-    # repeat_delay 200
-    # xkb_options compose:caps
-# 
-    # # touchpad
-    # tap enabled
-    # dwt enabled
-    # pointer_accel 0.2
-# }
+output * {
+    background #2f2f2f solid_color
+}
+
+input * {
+    repeat_rate 50
+    repeat_delay 150
+    xkb_options compose:caps
+
+    tap enabled
+    dwt enabled
+    #pointer_accel 0.2
+}

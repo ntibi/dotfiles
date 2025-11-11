@@ -46,6 +46,7 @@ config_userdir() { config user-dirs.dirs ~/.config/user-dirs.dirs; }
 config_compose() { config XCompose ~/.XCompose; }
 config_fontconfig() { config fontconfig ~/.config/fontconfig; }
 config_touchegg() { config touchegg ~/.config/touchegg; }
+config_waybar() { config waybar ~/.config/waybar; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -81,6 +82,9 @@ case $1 in
   touchegg)
       config_touchegg
     ;;
+  waybar)
+      config_waybar
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -93,6 +97,7 @@ case $1 in
       config_compose
       config_fontconfig
       config_touchegg
+      config_waybar
     ;;
   *)
     echo $1 not found

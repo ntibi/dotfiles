@@ -86,13 +86,11 @@
 			"on-scroll-down": "brightnessctl -e4 -n0 set 5%-",
 		},
 		"custom/cpugovernor": {
-			"interval": "30",
+			"interval": 30,
 			"return-type": "json",
 			"exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
-			"format-icons": {
-				"perf": "",
-				"sched": ""
-			},
+			"on-click": "$HOME/.config/waybar/custom_modules/toggle_cpugovernor.sh",
+			"signal": 2,
 		},
 
 }

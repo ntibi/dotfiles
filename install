@@ -37,6 +37,7 @@ function config()
 
 config_xdefaults() { config Xdefaults ~/.Xdefaults; }
 config_i3() { config i3 ~/.config/i3; }
+config_hypr() { config hypr ~/.config/hypr; }
 config_alacritty() { config alacritty ~/.config/alacritty; }
 config_gitconfig() { config gitconfig ~/.gitconfig; }
 config_dunst() { config dunst ~/.config/dunst; }
@@ -52,6 +53,9 @@ case $1 in
     ;;
   i3)
       config_i3
+    ;;
+  hypr|hyprland)
+      config_hypr
     ;;
   alacritty)
       config_alacritty
@@ -80,6 +84,7 @@ case $1 in
   ""|all)
       config_xdefaults
       config_i3
+      config_hypr
       config_alacritty
       config_gitconfig
       config_dunst

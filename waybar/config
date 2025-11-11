@@ -5,7 +5,7 @@
 		"spacing": 0,
 		"modules-left": ["hyprland/workspaces"],
 		"modules-center": [],
-		"modules-right": ["pulseaudio", "backlight", "network", "cpu", "memory", "temperature", "battery", "clock"],
+		"modules-right": ["pulseaudio", "backlight", "network", "cpu", "custom/cpugovernor", "memory", "temperature", "battery", "clock"],
 
 		"hyprland/workspaces": {
 			"format": "{id}",
@@ -84,6 +84,15 @@
 			"format-icons": ["󰃞", "󰃟", "󰃠"],
 			"on-scroll-up": "brightnessctl -e4 -n0 set 5%+",
 			"on-scroll-down": "brightnessctl -e4 -n0 set 5%-",
+		},
+		"custom/cpugovernor": {
+			"interval": "30",
+			"return-type": "json",
+			"exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
+			"format-icons": {
+				"perf": "",
+				"sched": ""
+			},
 		},
 
 }

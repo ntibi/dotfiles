@@ -43,7 +43,8 @@ window#waybar {
 #battery,
 #network,
 #pulseaudio,
-#backlight
+#backlight,
+#cpu_governor
 {
   padding: 0 12px;
   color: #cccccc;

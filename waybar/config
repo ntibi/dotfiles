@@ -8,7 +8,7 @@
 		"modules-right": ["pulseaudio", "backlight", "network", "cpu", "custom/cpugovernor", "memory", "temperature", "battery", "clock"],
 
 		"hyprland/workspaces": {
-			"format": "{id}",
+			"format": "{name}",
 			"on-click": "activate",
 			"all-outputs": false,
 			"active-only": false

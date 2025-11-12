@@ -5,7 +5,7 @@
 		"spacing": 0,
 		"modules-left": ["hyprland/workspaces"],
 		"modules-center": [],
-		"modules-right": ["pulseaudio", "backlight", "network", "cpu", "custom/cpugovernor", "memory", "temperature", "battery", "clock"],
+		"modules-right": ["pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "memory", "temperature", "battery", "clock"],
 
 		"hyprland/workspaces": {
 			"format": "{name}",
@@ -91,6 +91,12 @@
 			"exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
 			"on-click": "$HOME/.config/waybar/custom_modules/toggle_cpugovernor.sh",
 			"signal": 2,
+		},
+		"custom/vpn": {
+			"interval": 5,
+			"return-type": "json",
+			"exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
+			"on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
 		},
 
 }

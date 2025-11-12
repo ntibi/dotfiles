@@ -44,7 +44,8 @@ window#waybar {
 #network,
 #pulseaudio,
 #backlight,
-#cpu_governor
+#custom-cpugovernor,
+#custom-vpn
 {
   padding: 0 12px;
   color: #cccccc;

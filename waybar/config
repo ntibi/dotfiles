@@ -1,150 +1,150 @@
 {
-	"layer": "top",
-		"position": "bottom",
-		"height": 24,
-		"spacing": 0,
-		"modules-left": ["hyprland/workspaces"],
-		"modules-center": [],
-		"modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan", "memory", "temperature", "battery", "clock", "tray"],
+    "layer": "top",
+    "position": "bottom",
+    "height": 24,
+    "spacing": 0,
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": [],
+    "modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan", "memory", "temperature", "battery", "clock", "tray"],
 
-		"hyprland/workspaces": {
-			"format": "{name}",
-			"on-click": "activate",
-			"all-outputs": false,
-			"active-only": false
-		},
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "all-outputs": false,
+        "active-only": false
+    },
 
-		"hyprland/window": {
-			"format": "{}",
-			"max-length": 80,
-			"separate-outputs": true
-		},
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 80,
+        "separate-outputs": true
+    },
 
-		"privacy": {
-			"icon-spacing": 4,
-			"icon-size": 18,
-			"transition-duration": 250,
-			"modules": [
-			{
-				"type": "screenshare",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-out",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			},
-			{
-				"type": "audio-in",
-				"tooltip": true,
-				"tooltip-icon-size": 24
-			}
-			],
-			"ignore-monitor": true,
-			"ignore": [
-			{
-				"type": "audio-in",
-				"name": "cava"
-			},
-			{
-				"type": "screenshare",
-				"name": "obs"
-			}
-			]
-		},
-
-
-		"clock": {
-			"interval": 1,
-			"format": "{:%Y-%m-%d (%a %d %b) %H:%M:%S %Z}",
-		},
-
-		"cpu": {
-			"format": " {usage}%",
-			"interval": 2
-		},
-
-		"memory": {
-			"format": " {percentage}%",
-			"interval": 2
-		},
-
-		"temperature": {
-			"thermal-zone": 0,
-			"format": "{icon} {temperatureC}°C",
-			"format-icons":[""],
-			"interval": 10
-		},
+    "privacy": {
+        "icon-spacing": 4,
+        "icon-size": 18,
+        "transition-duration": 250,
+        "modules": [
+            {
+                "type": "screenshare",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-out",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            },
+            {
+                "type": "audio-in",
+                "tooltip": true,
+                "tooltip-icon-size": 24
+            }
+        ],
+        "ignore-monitor": true,
+        "ignore": [
+            {
+                "type": "audio-in",
+                "name": "cava"
+            },
+            {
+                "type": "screenshare",
+                "name": "obs"
+            }
+        ]
+    },
 
 
-		"battery": {
-			"states": {
-				"warning": 30,
-				"critical": 15
-			},
-			"format": "{icon} {capacity}%",
-			"format-charging": "{icon}󱐋 {capacity}%+",
-			"format-plugged": "{icon}󱐋 {capacity}%",
-			"format-alt": "{icon} {time}",
+    "clock": {
+        "interval": 1,
+        "format": "{:%Y-%m-%d (%a %d %b) %H:%M:%S %Z}",
+    },
 
-			"format": "{icon} {capacity}%",
-			"format-good": "{icon} {capacity}%", 
-			"format-full": "{icon} {capacity}%",
-			"format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-			"interval": 30
-		},
+    "cpu": {
+        "format": " {usage}%",
+        "interval": 2
+    },
 
-		"network": {
-			"format-wifi": " {essid} ({signalStrength}%)",
-			"format-ethernet": "eth",
-			"format-linked": "eth (no ip)",
-			"format-disconnected": "󰖪",
-			"format-alt": "{ifname}: {ipaddr}/{cidr}",
-		},
+    "memory": {
+        "format": " {percentage}%",
+        "interval": 2
+    },
 
-		"pulseaudio": {
-			"format": "{icon} {volume}%",
-			"format-muted": " {volume}%",
-			"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-			"scroll-step": 5,
-			"smooth-scrolling-threshold": 1,
-			"format-icons": {
-				"default": [""]
-			},
-		},
+    "temperature": {
+        "thermal-zone": 0,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons":[""],
+        "interval": 10
+    },
 
-		"backlight": {
-			"device": "intel_backlight",
-			"format": "{icon} {percent}%",
-			"format-icons": ["󰃞", "󰃟", "󰃠"],
-			"on-scroll-up": "brightnessctl -e4 -n0 set 5%+",
-			"on-scroll-down": "brightnessctl -e4 -n0 set 5%-",
-		},
 
-		"tray": {
-			"icon-size": 21,
-			"spacing": 10,
-		},
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon}󱐋 {capacity}%+",
+        "format-plugged": "{icon}󱐋 {capacity}%",
+        "format-alt": "{icon} {time}",
 
-		"custom/cpugovernor": {
-			"interval": 30,
-			"return-type": "json",
-			"exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
-			"on-click": "$HOME/.config/waybar/custom_modules/toggle_cpugovernor.sh",
-			"signal": 2,
-		},
-			"custom/vpn": {
-				"interval": 5,
-				"return-type": "json",
-				"exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
-				"on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
-			},
-			"custom/fan": {
-				"format": "󰈐 {}",
-				"interval": 5,
-				"exec": "awk '/^speed/{ print $2 }' /proc/acpi/ibm/fan",
-				"on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
-			},
+        "format": "{icon} {capacity}%",
+        "format-good": "{icon} {capacity}%", 
+        "format-full": "{icon} {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 30
+    },
+
+    "network": {
+        "format-wifi": " {essid} ({signalStrength}%)",
+        "format-ethernet": "eth",
+        "format-linked": "eth (no ip)",
+        "format-disconnected": "󰖪",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5,
+        "smooth-scrolling-threshold": 1,
+        "format-icons": {
+            "default": [""]
+        },
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl -e4 -n0 set 5%+",
+        "on-scroll-down": "brightnessctl -e4 -n0 set 5%-",
+    },
+
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+    },
+
+    "custom/cpugovernor": {
+        "interval": 30,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
+        "on-click": "$HOME/.config/waybar/custom_modules/toggle_cpugovernor.sh",
+        "signal": 2,
+    },
+    "custom/vpn": {
+        "interval": 5,
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
+        "on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
+    },
+    "custom/fan": {
+        "format": "󰈐 {}",
+        "interval": 5,
+        "exec": "awk '/^speed/{ print $2 }' /proc/acpi/ibm/fan",
+        "on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
+    },
 
 }

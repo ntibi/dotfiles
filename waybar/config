@@ -5,7 +5,7 @@
 		"spacing": 0,
 		"modules-left": ["hyprland/workspaces"],
 		"modules-center": [],
-		"modules-right": ["pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "memory", "temperature", "battery", "clock"],
+		"modules-right": ["pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan", "memory", "temperature", "battery", "clock"],
 
 		"hyprland/workspaces": {
 			"format": "{name}",
@@ -97,6 +97,12 @@
 			"return-type": "json",
 			"exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
 			"on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
+		},
+		"custom/fan": {
+			"format": "󰈐 {}",
+			"interval": 5,
+			"exec": "awk '/^speed/{ print $2 }' /proc/acpi/ibm/fan",
+			"on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
 		},
 
 }

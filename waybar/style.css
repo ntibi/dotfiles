@@ -47,7 +47,8 @@ window#waybar {
 #backlight,
 #custom-cpugovernor,
 #custom-vpn,
-#custom-fan
+#custom-fan,
+#tray
 {
   padding: 0 12px;
   color: #cccccc;

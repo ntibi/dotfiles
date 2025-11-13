@@ -21,12 +21,12 @@ num-results = 10
 result-spacing = 4
 
 # colors matching waybar/hyprland aesthetic
-background-color = #2f2f2f
+background-color = #2f2f2f11
 text-color = #cccccc
 prompt-color = #cccccc
 selection-color = #ffffff
 selection-background = #444444
-selection-background-padding = 4
+selection-background-padding = 0
 selection-background-corner-radius = 0
 
 # borders

@@ -138,12 +138,14 @@
         "interval": 5,
         "return-type": "json",
         "exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
+        "exec-if": "command -v mullvad",
         "on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
     },
     "custom/fan": {
         "format": "󰈐 {}",
         "interval": 5,
         "exec": "awk '/^speed/{ print $2 }' /proc/acpi/ibm/fan",
+        "exec-if": "test -r /proc/acpi/ibm/fan",
         "on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
     },
 

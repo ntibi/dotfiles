@@ -14,11 +14,11 @@ margin = 0 0 0 0
 num-results = 0
 result-spacing = 2
 
-background-color = #2f2f2f11
-text-color = #cccccc
-prompt-color = #cccccc
-selection-color = #ffffff
-selection-background = #444444
+background-color = #2f2f2fdd
+text-color = #ccccccff
+prompt-color = #ccccccff
+selection-color = #ffffffff
+selection-background = #444444ff
 selection-background-padding = 0
 selection-background-corner-radius = 0
 

@@ -30,3 +30,5 @@ hide-cursor = true
 drun-launch = true
 terminal = alacritty
 history = true
+
+scale = true

@@ -20,6 +20,12 @@ duration = 0
 background = "#333333"
 foreground = "#eeeeee"
 
+[selection]
+save_to_clipboard = true
+
+[env]
+TERM = "xterm-256color"
+
 [[keyboard.bindings]]
 key = "Plus"
 mods = "Control"

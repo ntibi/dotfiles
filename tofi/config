@@ -32,3 +32,5 @@ terminal = alacritty
 history = true
 
 scale = true
+
+matching-algorithm = fuzzy

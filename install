@@ -47,6 +47,7 @@ config_compose() { config XCompose ~/.XCompose; }
 config_fontconfig() { config fontconfig ~/.config/fontconfig; }
 config_touchegg() { config touchegg ~/.config/touchegg; }
 config_waybar() { config waybar ~/.config/waybar; }
+config_tofi() { config tofi ~/.config/tofi; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -85,6 +86,9 @@ case $1 in
   waybar)
       config_waybar
     ;;
+  tofi)
+      config_tofi
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -98,6 +102,7 @@ case $1 in
       config_fontconfig
       config_touchegg
       config_waybar
+      config_tofi
     ;;
   *)
     echo $1 not found

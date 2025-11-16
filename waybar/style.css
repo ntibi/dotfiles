@@ -84,8 +84,7 @@ window#waybar {
 }
 
 #network.disconnected,
-#custom-vpn.disconnected,
-#custom-fan.auto {
+#custom-vpn.disconnected {
   color: #666666;
 }
 
@@ -103,6 +102,10 @@ window#waybar {
 #memory.critical,
 #temperature.critical {
   color: #ff6c6b;
+}
+
+#custom-fan.low {
+  color: #98be65;
 }
 
 #custom-fan.medium {

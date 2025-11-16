@@ -54,6 +54,14 @@ window#waybar {
   color: #cccccc;
 }
 
+#cpu,
+#memory,
+#temperature,
+#battery,
+#network {
+  color: #98be65;
+}
+
 #battery.charging {
   color: #98be65;
 }
@@ -82,7 +90,7 @@ window#waybar {
 }
 
 #custom-vpn.connected {
-  color: #98be65;
+  color: #7ba5dd;
 }
 
 #cpu.warning,

@@ -62,19 +62,31 @@
 
     "cpu": {
         "format": " {usage}%",
-        "interval": 2
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
 
     "memory": {
         "format": " {percentage}%",
-        "interval": 2
+        "interval": 2,
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
     },
 
     "temperature": {
         "thermal-zone": 0,
         "format": "{icon} {temperatureC}°C",
         "format-icons":[""],
-        "interval": 10
+        "interval": 10,
+        "states": {
+            "warning": 70,
+            "critical": 85
+        }
     },
 
 
@@ -144,7 +156,8 @@
     "custom/fan": {
         "format": "󰈐 {}",
         "interval": 5,
-        "exec": "awk '/^speed/{ print $2 }' /proc/acpi/ibm/fan",
+        "return-type": "json",
+        "exec": "$HOME/.config/waybar/custom_modules/fan.sh",
         "exec-if": "test -r /proc/acpi/ibm/fan",
         "on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
     },

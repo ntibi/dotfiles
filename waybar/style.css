@@ -69,3 +69,39 @@ window#waybar {
 #pulseaudio.muted {
   color: #666666;
 }
+
+#clock,
+#custom-cpugovernor {
+  color: #7ba5dd;
+}
+
+#network.disconnected,
+#custom-vpn.disconnected,
+#custom-fan.auto {
+  color: #666666;
+}
+
+#custom-vpn.connected {
+  color: #98be65;
+}
+
+#cpu.warning,
+#memory.warning,
+#temperature.warning {
+  color: #ecbe7b;
+}
+
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+  color: #ff6c6b;
+}
+
+#custom-fan.medium {
+  color: #ecbe7b;
+}
+
+#custom-fan.high,
+#custom-fan.full {
+  color: #ff6c6b;
+}

@@ -118,7 +118,8 @@
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": " {volume}%",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "scroll-step": 5,
         "smooth-scrolling-threshold": 1,
         "format-icons": {

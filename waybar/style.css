@@ -112,7 +112,6 @@ window#waybar {
   color: #ecbe7b;
 }
 
-#custom-fan.high,
-#custom-fan.full {
+#custom-fan.high {
   color: #ff6c6b;
 }

@@ -5,12 +5,10 @@ speed=$(awk '/^speed:/{print $2}' /proc/acpi/ibm/fan)
 
 if [ "$speed" -lt 3000 ]; then
 	class="low"
-elif [ "$speed" -lt 4500 ]; then
+elif [ "$speed" -lt 5000 ]; then
 	class="medium"
-elif [ "$speed" -lt 5500 ]; then
-	class="high"
 else
-	class="full"
+	class="high"
 fi
 
 echo "{\"text\": \"$speed\", \"class\": \"$class\", \"tooltip\": \"level: $level\"}"

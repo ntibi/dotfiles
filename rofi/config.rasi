@@ -6,6 +6,10 @@ configuration {
     display-drun: " > ";
     display-run: " > ";
     matching: "fuzzy";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-to-eol: "";
+    kb-row-down: "Down,Control+j";
+    kb-row-up: "Up,Control+k";
 }
 
 * {

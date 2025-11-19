@@ -130,7 +130,7 @@ element selected urgent {
 
 error-message {
     expand: true;
-    background-color: @selected-bg;
+    background-color: #ff4444;
     border-color: @selected-bg;
     border: 0.2em;
     padding: 1em;

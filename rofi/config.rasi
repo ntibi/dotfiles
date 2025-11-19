@@ -3,8 +3,8 @@ configuration {
     show-icons: false;
     terminal: "alacritty";
     drun-display-format: "{name}";
-    display-drun: " > ";
-    display-run: " > ";
+    display-drun: "";
+    display-run: "";
     matching: "fuzzy";
     kb-accept-entry: "Return,KP_Enter";
     kb-remove-to-eol: "";
@@ -18,8 +18,6 @@ configuration {
     selected-bg: #444444;
     selected-fg: #ffffff;
 
-    background-color: transparent;
-    text-color: @fg;
     font: "DejaVuSansM Nerd Font Mono 13";
 }
 
@@ -33,45 +31,106 @@ window {
     padding: 0;
 }
 
-mainbox {
-    background-color: transparent;
-    children: [inputbar, listview];
-    spacing: 2px;
-}
+//button selected {
+    //border-color: @selected-fg;
+    //text-color: @selected-fg;
+//}
 
 inputbar {
-    background-color: transparent;
-    children: [prompt, entry];
-    padding: 0;
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+    padding: 4px;
+    border: 0;
 }
 
 prompt {
     background-color: transparent;
-    text-color: @fg;
-    padding: 0;
+    text-color: @selected-fg;
+    border: 0;
 }
 
 entry {
     background-color: transparent;
-    text-color: @fg;
-    placeholder: "";
+    text-color: @selected-fg;
+    border: 0;
+    enabled: false;
+}
+
+mainbox {
+    expand: true;
+    background-color: @bg;
+    spacing: 0;
+    border: 0;
+}
+
+mode-switcher {
+    enable: false;
+    border: 0;
+    background-color: transparent;
     padding: 0;
 }
 
 listview {
-    background-color: transparent;
+    padding: 0.8em;
+    dynamic: false;
     lines: 0;
     scrollbar: false;
-    spacing: 2px;
 }
 
-element {
-    background-color: transparent;
-    text-color: @fg;
-    padding: 0;
+element-text {
+    background-color: inherit;
+    text-color: inherit;
 }
 
-element selected {
+element selected normal {
     background-color: @selected-bg;
     text-color: @selected-fg;
+}
+
+element normal active {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal urgent {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate active {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element alternate urgent {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element normal normal {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected active {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+
+element selected urgent {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}
+
+error-message {
+    expand: true;
+    background-color: @selected-bg;
+    border-color: @selected-bg;
+    border: 2px;
+    padding: 1em;
 }

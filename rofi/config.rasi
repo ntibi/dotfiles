@@ -1,5 +1,5 @@
 configuration {
-    modes: "drun,run";
+    modes: "drun,run,window";
     show-icons: false;
     terminal: "alacritty";
     drun-display-format: "{name}";

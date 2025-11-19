@@ -31,15 +31,15 @@ window {
     padding: 0;
 }
 
-//button selected {
-    //border-color: @selected-fg;
-    //text-color: @selected-fg;
-//}
+button selected {
+    border-color: @selected-fg;
+    text-color: @selected-fg;
+}
 
 inputbar {
     background-color: @selected-bg;
     text-color: @selected-fg;
-    padding: 4px;
+    padding: 0.2em;
     border: 0;
 }
 
@@ -71,10 +71,11 @@ mode-switcher {
 }
 
 listview {
-    padding: 0.8em;
+    padding: 0.5em;
     dynamic: false;
     lines: 0;
     scrollbar: false;
+    border: 0;
 }
 
 element-text {
@@ -131,6 +132,6 @@ error-message {
     expand: true;
     background-color: @selected-bg;
     border-color: @selected-bg;
-    border: 2px;
+    border: 0.2em;
     padding: 1em;
 }

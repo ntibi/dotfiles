@@ -1,0 +1,73 @@
+configuration {
+    modes: "drun,run";
+    show-icons: false;
+    terminal: "alacritty";
+    drun-display-format: "{name}";
+    display-drun: " > ";
+    display-run: " > ";
+    matching: "fuzzy";
+}
+
+* {
+    bg: #2f2f2fdd;
+    fg: #cccccc;
+    selected-bg: #444444;
+    selected-fg: #ffffff;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "DejaVuSansM Nerd Font Mono 13";
+}
+
+window {
+    width: 50%;
+    height: 30%;
+    location: southwest;
+    anchor: southwest;
+    background-color: @bg;
+    border: 0;
+    padding: 0;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [inputbar, listview];
+    spacing: 2px;
+}
+
+inputbar {
+    background-color: transparent;
+    children: [prompt, entry];
+    padding: 0;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "";
+    padding: 0;
+}
+
+listview {
+    background-color: transparent;
+    lines: 0;
+    scrollbar: false;
+    spacing: 2px;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg;
+    padding: 0;
+}
+
+element selected {
+    background-color: @selected-bg;
+    text-color: @selected-fg;
+}

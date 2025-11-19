@@ -48,6 +48,7 @@ config_fontconfig() { config fontconfig ~/.config/fontconfig; }
 config_touchegg() { config touchegg ~/.config/touchegg; }
 config_waybar() { config waybar ~/.config/waybar; }
 config_tofi() { config tofi ~/.config/tofi; }
+config_rofi() { config rofi ~/.config/rofi; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -89,6 +90,9 @@ case $1 in
   tofi)
       config_tofi
     ;;
+  rofi)
+      config_rofi
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -103,6 +107,7 @@ case $1 in
       config_touchegg
       config_waybar
       config_tofi
+      config_rofi
     ;;
   *)
     echo $1 not found

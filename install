@@ -49,6 +49,7 @@ config_touchegg() { config touchegg ~/.config/touchegg; }
 config_waybar() { config waybar ~/.config/waybar; }
 config_tofi() { config tofi ~/.config/tofi; }
 config_rofi() { config rofi ~/.config/rofi; }
+config_claude() { config claude/CLAUDE.md ~/.claude/CLAUDE.md; }
 
 case $1 in
   Xdefaults|xdefaults)
@@ -93,6 +94,9 @@ case $1 in
   rofi)
       config_rofi
     ;;
+  claude)
+      config_claude
+    ;;
   ""|all)
       config_xdefaults
       config_i3
@@ -108,6 +112,7 @@ case $1 in
       config_waybar
       config_tofi
       config_rofi
+      config_claude
     ;;
   *)
     echo $1 not found

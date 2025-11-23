@@ -39,6 +39,7 @@ config_xdefaults() { config Xdefaults ~/.Xdefaults; }
 config_i3() { config i3 ~/.config/i3; }
 config_hypr() { config hypr ~/.config/hypr; }
 config_alacritty() { config alacritty ~/.config/alacritty; }
+config_kitty() { config kitty ~/.config/kitty; }
 config_gitconfig() { config gitconfig ~/.gitconfig; }
 config_dunst() { config dunst ~/.config/dunst; }
 config_compton() { config compton ~/.config/compton; }
@@ -63,6 +64,9 @@ case $1 in
     ;;
   alacritty)
       config_alacritty
+    ;;
+  kitty)
+      config_kitty
     ;;
   git|gitconfig)
       config_gitconfig
@@ -102,6 +106,7 @@ case $1 in
       config_i3
       config_hypr
       config_alacritty
+      config_kitty
       config_gitconfig
       config_dunst
       config_compton

@@ -1,5 +1,6 @@
 [push]
 	default = current
+	autoSetupRemote = true
 [user]
 	name = ntibi
 	email = ntibi@protonmail.com
@@ -31,3 +32,5 @@
 	navigate = true
 	hunk-header-decoration-style = none
 
+[pull]
+	rebase = true

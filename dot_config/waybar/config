@@ -143,24 +143,24 @@
     "custom/cpugovernor": {
         "interval": 30,
         "return-type": "json",
-        "exec": "$HOME/.config/waybar/custom_modules/cpugovernor.sh",
-        "on-click": "$HOME/.config/waybar/custom_modules/toggle_cpugovernor.sh",
+        "exec": "$HOME/.config/waybar/custom_modules/cpu/governor_status.sh",
+        "on-click": "$HOME/.config/waybar/custom_modules/cpu/governor_toggle.sh",
         "signal": 2,
     },
     "custom/vpn": {
         "interval": 5,
         "return-type": "json",
-        "exec": "$HOME/.config/waybar/custom_modules/vpn.sh",
+        "exec": "$HOME/.config/waybar/custom_modules/mullvad/status.sh",
         "exec-if": "command -v mullvad",
-        "on-click": "$HOME/.config/waybar/custom_modules/toggle_vpn.sh",
+        "on-click": "$HOME/.config/waybar/custom_modules/mullvad/toggle.sh",
     },
     "custom/fan": {
         "format": "󰈐 {}",
         "interval": 5,
         "return-type": "json",
-        "exec": "$HOME/.config/waybar/custom_modules/fan.sh",
+        "exec": "$HOME/.config/waybar/custom_modules/ibm/fan_status.sh",
         "exec-if": "test -r /proc/acpi/ibm/fan",
-        "on-click": "$HOME/.config/waybar/custom_modules/toggle_fan.sh",
+        "on-click": "$HOME/.config/waybar/custom_modules/ibm/fan_toggle.sh",
     },
 
 }

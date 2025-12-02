@@ -3,9 +3,16 @@
     "position": "bottom",
     "height": 24,
     "spacing": 0,
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["niri/workspaces", "hyprland/workspaces"],
     "modules-center": [],
     "modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan", "memory", "temperature", "battery", "clock", "tray"],
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": false,
+        "active-only": false
+    },
 
     "hyprland/workspaces": {
         "format": "{name}",

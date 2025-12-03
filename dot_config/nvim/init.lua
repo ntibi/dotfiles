@@ -31,7 +31,16 @@ plugins = {
 
     },
     'justinmk/vim-syntax-extra',
-    'airblade/vim-gitgutter',
+    {
+        'airblade/vim-gitgutter',
+        config = function()
+            vim.keymap.set('n', ']h', '<Plug>(GitGutterNextHunk)', { silent = true })
+            vim.keymap.set('n', '[h', '<Plug>(GitGutterPrevHunk)', { silent = true })
+            vim.keymap.set('n', '<leader>s', '<Plug>(GitGutterStageHunk)', { silent = true })
+            vim.keymap.set('n', '<leader>u', '<Plug>(GitGutterUndoHunk)', { silent = true })
+            vim.keymap.set('n', '<leader>p', '<Plug>(GitGutterPreviewHunk)', { silent = true })
+        end,
+    },
     {
         'scrooloose/nerdtree',
         config = function()

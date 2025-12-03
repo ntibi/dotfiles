@@ -116,6 +116,11 @@ output "eDP-1" {
     position x=1280 y=0
 }
 
+cursor {
+    hide-when-typing
+    hide-after-inactive-ms 10000
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout

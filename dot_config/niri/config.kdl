@@ -374,6 +374,64 @@ window-rule {
     clip-to-geometry true
 }
 
+window-rule {
+    match app-id=r#"^discord$"#
+    match app-id=r#"^Slack$"#
+    match app-id=r#"^steam$"#
+
+    block-out-from "screencast"
+}
+
+window-rule {
+    match is-window-cast-target=true
+
+    focus-ring {
+        off
+    }
+
+    border {
+        on
+        width 1
+        active-color "rgb(88, 255, 37)"
+        inactive-color "rgb(61, 182, 24)"
+    }
+
+    shadow {
+        on
+        color "rgb(88, 255, 37)"
+    }
+
+    tab-indicator {
+        active-color "#f38ba8"
+        inactive-color "#7d0d2d"
+    }
+}
+
+window-rule {
+    match app-id=r#"^discord$"#
+    match app-id=r#"^Slack$"#
+
+    open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id=r#"^firefox$"#
+
+    open-on-workspace "browser"
+}
+
+window-rule {
+    match app-id=r#"^org.pulseaudio.pavucontrol$"#
+    match app-id=r#"^juif.fabien.choosme.client$"#
+    match app-id=r#"firefox$"# title=r#"^Picture-in-Picture$"#
+    match app-id=r#"XEyes$"#
+    match app-id=r#"^steam$"# title=r#"^Steam Settings"#
+    match app-id=r#"^Slack$"# title=r#"^Huddle"#
+    match app-id=r#"^Pinentry-gtk$"#
+
+    open-floating true
+}
+
 binds {
     // Keys consist of modifiers separated by + signs, followed by an XKB key name
     // in the end. To find an XKB name for a particular key, you may use a program

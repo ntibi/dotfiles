@@ -415,15 +415,17 @@ window-rule {
     open-on-workspace "chat"
 }
 
-window-rule {
-    match app-id=r#"^firefox$"#
+//window-rule {
+    //match app-id=r#"^firefox$"#
+    // // commented because this exclude rule doesnt work
+    // // vvvvvvvv
+    //exclude title=r#"Private Browsing"#
 
-    open-on-workspace "browser"
-}
+    //open-on-workspace "browser"
+//}
 
 window-rule {
     match app-id=r#"^org.pulseaudio.pavucontrol$"#
-    match app-id=r#"^juif.fabien.choosme.client$"#
     match app-id=r#"firefox$"# title=r#"^Picture-in-Picture$"#
     match app-id=r#"XEyes$"#
     match app-id=r#"^steam$"# title=r#"^Steam Settings"#

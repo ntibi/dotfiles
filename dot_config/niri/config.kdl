@@ -386,7 +386,6 @@ binds {
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+X { spawn "rofi" "-show" "drun"; }
-    Mod+Tab { spawn "rofi" "-show" "window"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -424,6 +423,7 @@ binds {
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
     Mod+O repeat=false { toggle-overview; }
+    Mod+Tab repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
@@ -478,7 +478,7 @@ binds {
     // ...
 
     // And you can also move a whole workspace to another monitor:
-    // Mod+Shift+Ctrl+Left  { move-workspace-to-monitor-left; }
+    Mod+N  { move-workspace-to-monitor-right; }
     // ...
 
     Mod+Page_Down      { focus-workspace-down; }

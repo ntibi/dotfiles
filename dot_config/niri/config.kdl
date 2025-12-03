@@ -317,11 +317,14 @@ screenshot-path "~/pictures/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // The wiki explains how to configure individual animations:
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    // Uncomment to turn off all animations.
-    // off
+    on
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
     // slowdown 3.0
+
+    workspace-switch {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.

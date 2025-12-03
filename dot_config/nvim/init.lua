@@ -68,6 +68,16 @@ plugins = {
         end,
     },
     {
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = { 'go', 'lua', 'rust', 'javascript', 'typescript', 'c', 'cpp', 'python', 'yaml', 'bash', 'json', 'css', 'html', 'wgsl', 'asm', 'make', 'vim' },
+                highlight = { enable = true },
+            })
+        end,
+    },
+    {
         'itchyny/lightline.vim',
         config = function()
             vim.g.lightline = { enable = { tabline = 0 } }

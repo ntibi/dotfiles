@@ -78,6 +78,7 @@ workspace "chat"
 workspace "browser"
 workspace "code"
 workspace "terminal"
+workspace "media"
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -624,10 +625,12 @@ binds {
     Mod+1 { focus-workspace "browser"; }
     Mod+2 { focus-workspace "code"; }
     Mod+3 { focus-workspace "terminal"; }
+    Mod+4 { focus-workspace "media"; }
     Mod+Shift+Grave { move-column-to-workspace "chat"; }
     Mod+Shift+1 { move-column-to-workspace "browser"; }
     Mod+Shift+2 { move-column-to-workspace "code"; }
     Mod+Shift+3 { move-column-to-workspace "terminal"; }
+    Mod+Shift+4 { move-column-to-workspace "media"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

@@ -464,6 +464,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+X { spawn "rofi" "-show" "drun"; }
     XF86AudioMedia { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }
+    Home { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

@@ -28,6 +28,9 @@
 - Instrument key performance indicators.
 
 # Development Workflow
+
 - **Minimal changes**: Only modify code relevant to the current task.
 - **Commit atomicity**: One logical change per commit.
 
+# MCP Usage
+- Always use context7 when I need code generation, setup or configuration steps, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.

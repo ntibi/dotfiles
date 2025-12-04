@@ -458,7 +458,7 @@ window-rule {
 recent-windows {
     debounce-ms 750
 
-    open-delay-ms 100
+    open-delay-ms 300
 
     highlight {
         active-color "#999999ff"
@@ -473,15 +473,8 @@ recent-windows {
     }
 
     binds {
-        Alt+Tab         { next-window; }
-        Alt+Shift+Tab   { previous-window; }
-        Alt+grave       { next-window     filter="app-id"; }
-        Alt+Shift+grave { previous-window filter="app-id"; }
-
-        Mod+Tab         { next-window; }
-        Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window     filter="app-id"; }
-        Mod+Shift+grave { previous-window filter="app-id"; }
+        Mod+Semicolon         { next-window; }
+        Mod+Shift+Semicolon   { previous-window; }
     }
 }
 
@@ -674,7 +667,7 @@ binds {
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
     // Switches focus between the current and the previous workspace.
-    Mod+Semicolon { focus-workspace-previous; }
+    //Mod+Semicolon { focus-workspace-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.

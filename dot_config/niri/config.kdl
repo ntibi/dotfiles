@@ -74,6 +74,12 @@ input {
     // focus-follows-mouse max-scroll-amount="0%"
 }
 
+gestures {
+    hot-corners {
+         off
+    }
+}
+
 workspace "chat"
 workspace "browser"
 workspace "code"

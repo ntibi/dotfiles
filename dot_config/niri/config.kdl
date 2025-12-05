@@ -423,7 +423,7 @@ window-rule {
 recent-windows {
     debounce-ms 750
 
-    open-delay-ms 300
+    open-delay-ms 0
 
     highlight {
         active-color "#999999ff"

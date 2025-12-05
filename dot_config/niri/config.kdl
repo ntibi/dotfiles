@@ -438,8 +438,8 @@ recent-windows {
     }
 
     binds {
-        Mod+Semicolon         { next-window; }
-        Mod+Shift+Semicolon   { previous-window; }
+        Mod+Shift+Semicolon { next-window; }
+        Mod+Semicolon { previous-window; }
     }
 }
 
@@ -557,11 +557,7 @@ binds {
     Mod+Shift+3 hotkey-overlay-title="move to: terminal" { move-column-to-workspace "terminal"; }
     Mod+Shift+4 hotkey-overlay-title="move to: media" { move-column-to-workspace "media"; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
-    // Switches focus between the current and the previous workspace.
-    //Mod+Semicolon { focus-workspace-previous; }
+    Mod+Semicolon { focus-window-previous; }
 
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.

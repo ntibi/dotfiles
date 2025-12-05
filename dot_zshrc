@@ -258,6 +258,7 @@ fi
 
 function setprompt()			# set a special predefined prompt or update the prompt according to the prompt vars
 {
+	[[ -z $_ssh ]] && return
 	case $1 in
 		("superlite") _PS1=("" "" "" "" "" "" "" "" "" "" "X" "");;
 		("lite") _PS1=("X" "X" "X" "" "" "" "" "" "" "" "X" "X");;

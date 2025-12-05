@@ -648,7 +648,6 @@ binds {
 
     Mod+Shift+E hotkey-overlay-title="quit niri" { quit skip-confirmation=true; }
 
-    // Powers off the monitors. To turn them back on, do any input like
-    // moving the mouse or pressing any other key.
-    Mod+Shift+P hotkey-overlay-title="power off & lock" { spawn-sh "niri msg action power-off-monitors && hyprlock"; }
+    Mod+P hotkey-overlay-title="power off monitor" { power-off-monitors; }
+    Mod+Shift+P hotkey-overlay-title="power off monitor & lock" { spawn-sh "niri msg action power-off-monitors && hyprlock"; }
 }

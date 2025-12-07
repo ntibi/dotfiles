@@ -53,7 +53,13 @@ URxvt*scrollTtyKeypress: true
 
 URxvt.keysym.Shift-Return: string:\n
 
+{{ if eq .chezmoi.hostname "ws" -}}
 Xft.dpi: 96
+{{ else if eq .chezmoi.hostname "desktop" -}}
+Xft.dpi: 96
+{{ else if eq .chezmoi.hostname "tibishift" -}}
+Xft.dpi: 144
+{{ end -}}
 Xft.antialias: true
 Xft.hinting:   true
 Xft.autohint:  false

@@ -5,7 +5,7 @@
     "spacing": 0,
     "modules-left": ["niri/workspaces", "hyprland/workspaces"],
     "modules-center": [],
-    "modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan/ibm", "custom/fan/framework", "memory", "temperature", "battery", "clock", "tray"],
+    "modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan_ibm", "custom/fan_framework", "memory", "temperature", "battery", "clock", "tray"],
 
     "niri/workspaces": {
         "format": "{icon}",
@@ -169,14 +169,14 @@
         "exec-if": "command -v mullvad",
         "on-click": "$HOME/.config/waybar/custom_modules/mullvad/toggle.sh",
     },
-    "custom/fan/ibm": {
+    "custom/fan_ibm": {
         "exec-if": "test -r /proc/acpi/ibm/fan",
         "format": "󰈐 {}",
         "interval": 5,
         "return-type": "json",
         "exec": "$HOME/.config/waybar/custom_modules/ibm/fan_status.sh",
     },
-    "custom/fan/framework": {
+    "custom/fan_framework": {
         "exec-if": "command -v ectool",
         "format": "󰈐 {}",
         "interval": 5,

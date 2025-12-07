@@ -47,7 +47,8 @@ window#waybar {
 #backlight,
 #custom-cpugovernor,
 #custom-vpn,
-#custom-fan,
+#custom-fan-ibm,
+#custom-fan-framework,
 #tray
 {
   padding: 0 12px;
@@ -104,14 +105,17 @@ window#waybar {
   color: #ff6c6b;
 }
 
-#custom-fan.low {
+#custom-fan_ibm.low,
+#custom-fan_framework.low {
   color: #98be65;
 }
 
-#custom-fan.medium {
+#custom-fan_ibm.medium,
+#custom-fan_framework.medium {
   color: #ecbe7b;
 }
 
-#custom-fan.high {
+#custom-fan_ibm.high,
+#custom-fan_framework.high {
   color: #ff6c6b;
 }

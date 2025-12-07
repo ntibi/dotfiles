@@ -289,16 +289,16 @@ exec --no-startup-id "xmodmap ~/.Xmodmap"
 exec --no-startup-id touchegg
 exec --no-startup-id alsactl --file ~/.config/asound.state restore
 
-output * {
-    background #2f2f2f solid_color
-}
+#output * {
+    #background #2f2f2f solid_color
+#}
 
-input * {
-    repeat_rate 50
-    repeat_delay 150
-    xkb_options compose:caps
+#input * {
+    #repeat_rate 50
+    #repeat_delay 150
+    #xkb_options compose:caps
 
-    tap enabled
-    dwt enabled
-    #pointer_accel 0.2
-}
+    #tap enabled
+    #dwt enabled
+    ##pointer_accel 0.2
+#}

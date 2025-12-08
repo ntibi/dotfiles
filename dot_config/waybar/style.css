@@ -20,7 +20,7 @@ window#waybar {
 #workspaces button.active {
   background-color: #444444;
   color: #ffffff;
-  animation: active_animation 0.5s ease-in-out;
+  animation: active_animation 0.2s ease-in-out;
 }
 
 @keyframes active_animation {
@@ -37,7 +37,7 @@ window#waybar {
 #workspaces button.urgent {
   background-color: #ff6c6b;
   color: #ffffff;
-  animation: urgent_animation 0.5s ease-in-out;
+  animation: urgent_animation 0.2s ease-in-out;
 }
 
 @keyframes urgent_animation {

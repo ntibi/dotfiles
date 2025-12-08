@@ -147,6 +147,12 @@ plugins = {
             vim.keymap.set('n', '<leader>9', '<Cmd>BufferLineGoToBuffer 9<CR>', { silent = true })
         end,
     },
+    {
+        'sindrets/diffview.nvim',
+        config = function()
+            require('diffview').setup()
+        end,
+    }
 }
 
 require("lazy").setup(plugins, opts)

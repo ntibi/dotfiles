@@ -513,6 +513,7 @@ binds {
     Mod+K hotkey-overlay-title="focus window/workspace up" { focus-window-or-workspace-up; }
 
     Mod+N hotkey-overlay-title="move workspace to monitor" { move-workspace-to-monitor-right; }
+    Mod+Shift+N hotkey-overlay-title="move workspace to monitor left" { move-workspace-to-monitor-left; }
 
     // You can bind mouse wheel scroll ticks using the following syntax.
     // These binds will change direction based on the natural-scroll setting.

@@ -7,10 +7,15 @@ print_status() {
     windows=$(niri msg --json windows 2>/dev/null)
     [ -z "$windows" ] && return
 
-    focused=$(echo "$windows" | jq -r '.[] | select(.is_focused == true)')
-    [ -z "$focused" ] && echo "" && return
+    workspaces=$(niri msg --json workspaces 2>/dev/null)
+    [ -z "$workspaces" ] && return
 
-    workspace_id=$(echo "$focused" | jq -r '.workspace_id')
+    active_workspace=$(echo "$workspaces" | jq -r ".[] | select(.output == \"$WAYBAR_OUTPUT_NAME\" and .is_active == true)")
+    [ -z "$active_workspace" ] && echo "" && return
+
+    workspace_id=$(echo "$active_workspace" | jq -r '.id')
+
+    focused=$(echo "$windows" | jq -r ".[] | select(.workspace_id == $workspace_id and .is_focused == true)")
     focused_col=$(echo "$focused" | jq -r '.layout.pos_in_scrolling_layout[0] // empty')
 
     workspace_windows=$(echo "$windows" | jq -r "[.[] | select(.workspace_id == $workspace_id and .is_floating == false)]")

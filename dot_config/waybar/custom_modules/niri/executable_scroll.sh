@@ -1,7 +1,7 @@
 #!/bin/bash
 
-EMPTY_SYMBOL="○"
-FILLED_SYMBOL="●"
+EMPTY_SYMBOL="󱓼"
+FILLED_SYMBOL="󱓻"
 
 print_status() {
     windows=$(niri msg --json windows 2>/dev/null)

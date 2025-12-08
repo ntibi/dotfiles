@@ -3,7 +3,8 @@
     "position": "bottom",
     "height": 24,
     "spacing": 0,
-    "modules-left": ["niri/workspaces", "hyprland/workspaces"],
+    "fixed-center": true,
+    "modules-left": ["niri/workspaces", "hyprland/workspaces", "custom/niri-scroll"],
     "modules-center": [],
     "modules-right": ["privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan_ibm", "custom/fan_framework", "memory", "temperature", "battery", "clock", "tray"],
 
@@ -184,4 +185,10 @@
         "on-click": "$HOME/.config/waybar/custom_modules/ibm/fan_toggle.sh",
         "exec": "$HOME/.config/waybar/custom_modules/framework/fan_status.sh",
     },
+
+    "custom/niri-scroll": {
+      "exec": "~/.config/waybar/custom_modules/niri/scroll.sh",
+      "restart-interval": 5,
+      "format": "{}"
+    }
 }

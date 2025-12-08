@@ -188,6 +188,7 @@
 
     "custom/niri-scroll": {
       "exec": "~/.config/waybar/custom_modules/niri/scroll.sh",
+      "all-outputs": false,
       "restart-interval": 5,
       "format": "{}"
     }

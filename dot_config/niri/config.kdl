@@ -603,11 +603,8 @@ binds {
     Mod+Z hotkey-overlay-title="maximize column" { maximize-column; }
     Mod+Shift+Z hotkey-overlay-title="fullscreen window" { fullscreen-window; }
 
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F hotkey-overlay-title="expand column" { expand-column-to-available-width; }
-
     Mod+C hotkey-overlay-title="center column" { center-column; }
+    Mod+Shift+C hotkey-overlay-title="expand column" {  expand-column-to-available-width; }
 
     // Center all fully visible columns on screen.
     Mod+Ctrl+C hotkey-overlay-title="center all columns" { center-visible-columns; }

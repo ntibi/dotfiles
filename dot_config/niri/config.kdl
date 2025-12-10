@@ -624,6 +624,11 @@ binds {
     Mod+Shift+Minus hotkey-overlay-title="decrease height" { set-window-height "-10%"; }
     Mod+Shift+Equal hotkey-overlay-title="increase height" { set-window-height "+10%"; }
 
+    Mod+TouchpadScrollDown hotkey-overlay-title="increase height" { set-window-height "+5%"; }
+    Mod+TouchpadScrollUp hotkey-overlay-title="decrease height" { set-window-height "-5%"; }
+    Mod+Shift+TouchpadScrollDown hotkey-overlay-title="increase width" { set-column-width "+5%"; }
+    Mod+Shift+TouchpadScrollUp hotkey-overlay-title="decrease width" { set-column-width "-5%"; }
+
     // Move the focused window between the floating and the tiling layout.
     // Mod+V       { toggle-window-floating; }
     Mod+Shift+Space hotkey-overlay-title="toggle floating" { toggle-window-floating; }

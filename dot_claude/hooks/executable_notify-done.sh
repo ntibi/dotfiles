@@ -1,5 +1,7 @@
 #!/bin/bash
 input=$(cat)
 reason=$(echo "$input" | jq -r '.stop_reason // "completed"')
-notify-send --urgency=low "Claude" "task $reason"
+cwd=$(echo "$input" | jq -r '.cwd // "unknown"')
+dir=$(basename "$cwd")
+notify-send --urgency=low "Claude [$dir]" "task $reason"
 exit 0

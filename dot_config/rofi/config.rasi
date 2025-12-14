@@ -1,11 +1,12 @@
 configuration {
     modes: "drun,run,window";
-    show-icons: false;
+    show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{name}";
     display-drun: "";
     display-run: "";
     matching: "fuzzy";
+    sorting-method: "fzf";
     kb-accept-entry: "Return,KP_Enter";
     kb-remove-to-eol: "";
     kb-row-down: "Down,Control+j";

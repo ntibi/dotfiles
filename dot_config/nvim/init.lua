@@ -84,7 +84,14 @@ plugins = {
         end,
     },
     'windwp/nvim-autopairs',
-    'easymotion/vim-easymotion',
+    {
+        'easymotion/vim-easymotion',
+        config = function()
+            vim.g.EasyMotion_do_mapping = 0
+            vim.g.EasyMotion_smartcase = 1
+            vim.keymap.set({'n', 'v'}, 'f', '<Plug>(easymotion-s2)', {})
+        end,
+    },
     'junegunn/fzf',
     {
         'junegunn/fzf.vim',

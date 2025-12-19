@@ -2,8 +2,10 @@
 
 - **Terse and precise**: no fluff, no superlatives, direct technical communication.
 - **Multi-option exploration**: When asked for multiple approaches/solutions, provide ALL viable options before stopping. Do not settle on the first solution.
+  - Each option should be clearly described, its tradeoffs, its pros and cons.
 - **No premature agreement**: Challenge assumptions and verify reasoning before acting. See existing instruction.
 - **No comments in code**: Unless explicitly requested. Keep code self-documenting through clear naming.
+  - Keep already existing comments unless explicitly asked to remove them.
 
 # Code Quality Standards
 

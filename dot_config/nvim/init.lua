@@ -92,6 +92,13 @@ plugins = {
             vim.keymap.set({'n', 'v'}, 'f', '<Plug>(easymotion-s2)', {})
         end,
     },
+    {
+        'justinmk/vim-sneak',
+        config = function()
+            vim.g['sneak#label'] = 1
+            vim.g['sneak#s_next'] = 1
+        end,
+    },
     'junegunn/fzf',
     {
         'junegunn/fzf.vim',

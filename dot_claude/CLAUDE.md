@@ -35,4 +35,11 @@
 - **Commit atomicity**: One logical change per commit.
 
 # MCP Usage
-- Always use context7 when I need code generation, setup or configuration steps, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
+
+## Context7
+- Always use context7 when I need code generation, setup, configuration, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
+
+## Serena Memory
+- When working on a registered project, activate it via serena and read relevant memories at session start.
+- Update/create memories when learning new project patterns, conventions, or architecture.
+- Save useful context during the session for future reference.

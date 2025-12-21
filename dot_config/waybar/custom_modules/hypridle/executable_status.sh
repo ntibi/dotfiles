@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if systemctl --user is-active --quiet hypridle; then
-    echo '{"text": "󰌾", "tooltip": "hypridle enabled", "class": "enabled"}'
+    echo '{"text": "<span size=\"large\">󰌾</span>", "tooltip": "hypridle enabled", "class": "enabled"}'
 else
-    echo '{"text": "󰌿", "tooltip": "hypridle disabled", "class": "disabled"}'
+    echo '{"text": "<span size=\"large\">󰌿</span>", "tooltip": "hypridle disabled", "class": "disabled"}'
 fi

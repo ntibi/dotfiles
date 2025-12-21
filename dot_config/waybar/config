@@ -14,11 +14,11 @@
         "all-outputs": false,
         "active-only": false,
         "format-icons": {
-            "chat": "󰭹",
-            "browser": "󰈹",
-            "code": "",
-            "terminal": "",
-            "media": "",
+            "chat": "<span size=\"large\">󰭹</span>",
+            "browser": "<span size=\"large\">󰈹</span>",
+            "code": "<span size=\"large\"></span>",
+            "terminal": "<span size=\"large\"></span>",
+            "media": "<span size=\"large\"></span>",
             "default": "",
         }
     },

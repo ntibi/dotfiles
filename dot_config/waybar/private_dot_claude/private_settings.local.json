@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(niri msg:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

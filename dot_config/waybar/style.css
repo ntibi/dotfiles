@@ -72,9 +72,9 @@ window#waybar {
 #custom-cpugovernor,
 #custom-vpn,
 #custom-fan-ibm,
-#custom-fan-framework
-#tray
-{
+#custom-fan-framework,
+#custom-hypridle,
+#tray {
   padding: 0 12px;
   color: #cccccc;
 }
@@ -142,4 +142,12 @@ window#waybar {
 #custom-fan_ibm.high,
 #custom-fan_framework.high {
   color: #ff6c6b;
+}
+
+#custom-hypridle.enabled {
+  color: #98be65;
+}
+
+#custom-hypridle.disabled {
+  color: #ecbe7b;
 }

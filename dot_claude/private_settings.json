@@ -1,51 +1,56 @@
 {
-    "permissions": {
-        "allow": [
-            "WebFetch",
-            "WebSearch",
-            "Search*",
-            "mcp__context7__*",
-            "mcp__github__search*",
-            "mcp__github__get*",
-            "mcp__github__list_*",
-            "mcp__serena__read*",
-            "mcp__serena__list_*",
-            "mcp__serena__search*",
-            "mcp__serena__get*",
-            "mcp__serena__think*"
-        ],
-        "deny": [],
-        "ask": [],
-        "defaultMode": "default"
-    },
-    "alwaysThinkingEnabled": true,
-    "hooks": {
-        "PermissionRequest": [
-            {
-                "matcher": "*",
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "/home/ntibi/.claude/hooks/notify-permission.sh"
-                    }
-                ]
-            }
-        ],
-        "Stop": [
-            {
-                "hooks": [
-                    {
-                        "type": "command",
-                        "command": "/home/ntibi/.claude/hooks/notify-done.sh"
-                    }
-                ]
-            }
+  "env": {
+    "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
+    "OTEL_METRICS_EXPORTER": "otlp",
+    "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317"
+  },
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch",
+      "Search*",
+      "mcp__context7__*",
+      "mcp__github__search*",
+      "mcp__github__get*",
+      "mcp__github__list_*",
+      "mcp__serena__read*",
+      "mcp__serena__list_*",
+      "mcp__serena__search*",
+      "mcp__serena__get*",
+      "mcp__serena__think*"
+    ],
+    "deny": [],
+    "ask": [],
+    "defaultMode": "default"
+  },
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/ntibi/.claude/hooks/notify-permission.sh"
+          }
         ]
-    },
-    "env": {
-        "CLAUDE_CODE_ENABLE_TELEMETRY": "1",
-        "OTEL_METRICS_EXPORTER": "otlp",
-        "OTEL_EXPORTER_OTLP_PROTOCOL": "grpc",
-        "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4317"
-    }
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/ntibi/.claude/hooks/notify-done.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bun x ccusage@latest statusline --cost-source cc",
+    "padding": 0
+  },
+  "alwaysThinkingEnabled": true
 }

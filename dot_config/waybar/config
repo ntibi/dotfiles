@@ -19,6 +19,7 @@
             "code": "<span size=\"large\"></span>",
             "terminal": "<span size=\"large\"></span>",
             "media": "<span size=\"large\"></span>",
+            "magic": "",
             "default": "",
         }
     },

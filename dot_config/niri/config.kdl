@@ -96,6 +96,7 @@ workspace "browser"
 workspace "code"
 workspace "terminal"
 workspace "media"
+workspace "magic"
 
 include "monitors.kdl"
 

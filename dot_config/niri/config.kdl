@@ -5,6 +5,12 @@
 // Check the wiki for a full description of the configuration:
 // https://yalter.github.io/niri/Configuration:-Introduction
 
+environment {
+    QT_QPA_PLATFORM "wayland"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+}
+
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://yalter.github.io/niri/Configuration:-Input
@@ -78,6 +84,11 @@ gestures {
     hot-corners {
          off
     }
+}
+
+overview {
+    zoom 0.5
+    backdrop-color "#1f1f1f"
 }
 
 workspace "chat"
@@ -356,8 +367,6 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
 window-rule {
     geometry-corner-radius 19
     clip-to-geometry true

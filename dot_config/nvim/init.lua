@@ -119,7 +119,16 @@ plugins = {
     'tikhomirov/vim-glsl',
     'DingDean/wgsl.vim',
     'hashivim/vim-terraform',
-    'j-hui/fidget.nvim',
+    {
+        'j-hui/fidget.nvim',
+        config = function()
+            require('fidget').setup({
+                notification = {
+                    window = { winblend = 0 },
+                },
+            })
+        end,
+    },
     'github/copilot.vim',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
@@ -276,7 +285,17 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>z', ':lua ToggleFoldAll()<CR>', { noremap = true, silent = true })
 
--- navigate diagnostics
+vim.diagnostic.config({
+    virtual_text = { prefix = '●', spacing = 2 },
+    float = {
+        source = true,
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})
+
 vim.keymap.set('n', '[<space>', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']<space>', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>[', vim.diagnostic.setloclist)

@@ -11,14 +11,9 @@
       "WebSearch",
       "Search*",
       "mcp__context7__*",
-      "mcp__github__search*",
       "mcp__github__get*",
       "mcp__github__list_*",
-      "mcp__serena__read*",
-      "mcp__serena__list_*",
-      "mcp__serena__search*",
-      "mcp__serena__get*",
-      "mcp__serena__think*"
+      "mcp__serena__*"
     ],
     "deny": [],
     "ask": [],

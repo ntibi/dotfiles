@@ -34,6 +34,13 @@
 - **Minimal changes**: Only modify code relevant to the current task.
 - **Commit atomicity**: One logical change per commit.
 
+# Research & Best Practices
+
+- **Always look up best practices**: Before implementing anything non-trivial, search for current best practices, idiomatic patterns, and modern tooling for the technology stack.
+- **Suggest better alternatives**: If a request uses a tool/approach but there's a more idiomatic or mature alternative in the ecosystem, mention it.
+- **Use web search proactively**: Search for "[technology] best practices [year]" or "[tool] idiomatic patterns" when unsure about the canonical way to do something.
+- **Prefer ecosystem standards**: Use official style guides, linters, formatters, and conventions for each language/framework.
+
 # MCP Usage
 
 ## Context7

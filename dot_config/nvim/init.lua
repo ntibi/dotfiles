@@ -45,7 +45,7 @@ plugins = {
         'scrooloose/nerdtree',
         config = function()
             vim.g.NERDTreeMinimalUI = 1
-            vim.keymap.set('n', '<C-n>', ':NERDTreeToggle %<CR>', bufopts)
+            vim.keymap.set('n', '<C-n>', ':NERDTreeToggle %<CR>')
         end,
     },
     {
@@ -178,7 +178,7 @@ plugins = {
     }
 }
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup(plugins)
 
 -- quick save/close
 vim.api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })
@@ -296,8 +296,8 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
-vim.keymap.set('n', '[<space>', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']<space>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '[<space>', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']<space>', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>[', vim.diagnostic.setloclist)
 
 -- set up completion options
@@ -305,7 +305,7 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 vim.o.pumheight = 5
 
 -- quick git blame
-vim.keymap.set('n', 'gb', ':execute "!git blame -L" . line(".") . ",+1 %"<CR>', opts)
+vim.keymap.set('n', 'gb', ':execute "!git blame -L" . line(".") . ",+1 %"<CR>')
 
 
 vim.lsp.enable('pyright')
@@ -341,15 +341,15 @@ vim.lsp.config('lua_ls', {
     },
 })
 
-vim.keymap.set('n', '<leader><space>', vim.lsp.buf.hover, bufopts)
-vim.keymap.set('n', '<leader>h', vim.lsp.buf.signature_help, bufopts)
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-vim.keymap.set('n', 'gn', vim.lsp.buf.rename, bufopts)
-vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, bufopts)
+vim.keymap.set('n', '<leader><space>', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>h', vim.lsp.buf.signature_help)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
+vim.keymap.set('n', 'ga', vim.lsp.buf.code_action)
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),

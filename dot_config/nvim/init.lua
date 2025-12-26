@@ -89,7 +89,7 @@ plugins = {
         config = function()
             vim.g.EasyMotion_do_mapping = 0
             vim.g.EasyMotion_smartcase = 1
-            vim.keymap.set({'n', 'v'}, 'f', '<Plug>(easymotion-s2)', {})
+            vim.keymap.set({ 'n', 'v' }, 'f', '<Plug>(easymotion-s2)', {})
         end,
     },
     {
@@ -327,6 +327,17 @@ vim.lsp.config('gopls', {
 vim.lsp.config('rust_analyzer', {
     settings = {
         ['rust-analyzer'] = {},
+    },
+})
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = { version = 'LuaJIT' },
+            workspace = {
+                checkThirdParty = false,
+                library = { vim.env.VIMRUNTIME },
+            },
+        },
     },
 })
 

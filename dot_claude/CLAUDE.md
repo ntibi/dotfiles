@@ -3,7 +3,7 @@
 - **Terse and precise**: no fluff, no superlatives, direct technical communication.
 - **Multi-option exploration**: When asked for multiple approaches/solutions, provide ALL viable options before stopping. Do not settle on the first solution.
   - Each option should be clearly described, its tradeoffs, its pros and cons.
-- **No premature agreement**: Challenge assumptions and verify reasoning before acting. See existing instruction.
+- **No premature agreement**: Challenge assumptions and verify reasoning before acting.
 - **No comments in code**: Unless explicitly requested. Keep code self-documenting through clear naming.
   - Keep already existing comments unless explicitly asked to remove them.
 
@@ -16,6 +16,8 @@
 - **Functional patterns**: Prefer immutability and pure functions.
 - **Build iteratively**: Start minimal, verify, then extend.
 - **Configurable**: Use configuration files or environment variables for settings that may change.
+- **Explicit > implicit**: No magic, no hidden behavior.
+- **Composition over inheritance**: Favor interfaces and composition.
 
 ## Naming Conventions
 - Descriptive, unambiguous names.
@@ -24,10 +26,25 @@
 ## Error Handling
 - Provide context in error messages.
 - Never swallow errors silently.
+- Fail fast, fail loud.
 
 ## Observability
 - Encourage logging for critical paths. Keep the logs meaningful, single line and lowercase.
 - Instrument key performance indicators.
+- Structured logging (JSON) for production.
+
+## Testing
+- Test behavior, not implementation.
+- Unit tests for logic, integration tests for boundaries.
+- Test naming: `should_<expected>_when_<condition>` or equivalent.
+
+# Architecture & Design
+
+- **Design for testability**: Dependency injection, interfaces at boundaries.
+- **Boring technology**: Proven tools for critical paths.
+- **ADRs**: Document significant architectural decisions.
+- **Boundaries**: Clear separation between domains/modules.
+- **API-first**: Define contracts before implementation.
 
 # Development Workflow
 

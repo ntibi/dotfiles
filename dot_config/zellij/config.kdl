@@ -229,6 +229,7 @@ keybinds clear-defaults=true {
         }
     }
     tmux {
+        bind "Ctrl c" { Write 3; SwitchToMode "normal"; }
         bind "left" { MoveFocus "left"; SwitchToMode "normal"; }
         bind "down" { MoveFocus "down"; SwitchToMode "normal"; }
         bind "up" { MoveFocus "up"; SwitchToMode "normal"; }

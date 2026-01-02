@@ -1,0 +1,29 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="https://github.com/dj95/zjstatus/releases/download/v0.22.0/zjstatus.wasm" {
+                format_left   "#[bg=#1c1c1c]{mode}#[bg=#1c1c1c] {tabs}"
+                format_center ""
+                format_right  "#[bg=#1c1c1c] "
+                format_space  "#[bg=#1c1c1c]"
+
+                border_enabled  "false"
+
+                mode_normal        "#[bg=#1c1c1c,fg=#008787] N "
+                mode_tmux          "#[bg=#1c1c1c,fg=#ff5f00] T "
+                mode_locked        "#[bg=#1c1c1c,fg=#ff0000] L "
+                mode_pane          "#[bg=#1c1c1c,fg=#008787] P "
+                mode_tab           "#[bg=#1c1c1c,fg=#008787] W "
+                mode_resize        "#[bg=#1c1c1c,fg=#008787] R "
+                mode_scroll        "#[bg=#1c1c1c,fg=#008787] S "
+                mode_session       "#[bg=#1c1c1c,fg=#008787] O "
+                mode_move          "#[bg=#1c1c1c,fg=#008787] M "
+
+                tab_normal         "#[fg=#ff0000,bg=#0087af] {index} #[fg=#008787,bg=#1c1c1c] {name} "
+                tab_active         "#[fg=#ff0000,bg=#0087af] {index} #[fg=#008787,bg=#262626] {name}*"
+                tab_separator      "#[bg=#1c1c1c] "
+            }
+        }
+    }
+}

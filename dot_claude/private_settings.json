@@ -47,5 +47,9 @@
     "command": "bun x ccusage@latest statusline --cost-source cc",
     "padding": 0
   },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true
 }

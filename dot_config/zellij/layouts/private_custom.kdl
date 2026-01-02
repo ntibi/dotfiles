@@ -10,8 +10,8 @@ layout {
 
                 border_enabled  "false"
 
-                mode_normal        "#[bg=#1c1c1c,fg=#008787] N "
-                mode_tmux          "#[bg=#1c1c1c,fg=#ff5f00] T "
+                mode_normal        "#[bg=#1c1c1c,fg=#008787] > "
+                mode_tmux          "#[bg=#1c1c1c,fg=#006767] > "
                 mode_locked        "#[bg=#1c1c1c,fg=#ff0000] L "
                 mode_pane          "#[bg=#1c1c1c,fg=#008787] P "
                 mode_tab           "#[bg=#1c1c1c,fg=#008787] W "

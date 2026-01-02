@@ -347,20 +347,28 @@ themes {
             emphasis_3 175 135 255
         }
         frame_selected {
-            base 95 175 95
-            background 0
-            emphasis_0 255 95 0
-            emphasis_1 0 175 175
-            emphasis_2 175 135 255
-            emphasis_3 0
+            base 255 255 255
+            background 48 48 48
+            emphasis_0 255 255 255
+            emphasis_1 255 255 255
+            emphasis_2 255 255 255
+            emphasis_3 255 255 255
+        }
+        frame_unselected {
+            base 68 68 68
+            background 38 38 38
+            emphasis_0 68 68 68
+            emphasis_1 68 68 68
+            emphasis_2 68 68 68
+            emphasis_3 68 68 68
         }
         frame_highlight {
-            base 255 95 0
-            background 0
-            emphasis_0 175 135 255
+            base 255 255 255
+            background 48 48 48
+            emphasis_0 255 255 255
             emphasis_1 0
-            emphasis_2 255 95 0
-            emphasis_3 255 95 0
+            emphasis_2 255 255 255
+            emphasis_3 255 255 255
         }
         exit_code_success {
             base 95 175 95

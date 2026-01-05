@@ -66,3 +66,8 @@ action = "ResetFontSize"
 key = "Return"
 mods = "Shift"
 chars = "\n"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Control|Shift"
+action = "SpawnNewInstance"

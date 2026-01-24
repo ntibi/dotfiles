@@ -1571,6 +1571,9 @@ installed highlight && export FZF_DEFAULT_OPTS='--preview '\''[[ $(file --mime {
 [ -e /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -e /usr/share/autojump/autojump.zsh ] && source /usr/share/autojump/autojump.zsh
+if installed zoxide; then
+    eval "$(zoxide init zsh --cmd j)"
+fi
 
 [ -e "$HOME/.zsh-better-npm-completion.plugin.zsh" ] && source "${HOME}/.zsh-better-npm-completion.plugin.zsh"
 

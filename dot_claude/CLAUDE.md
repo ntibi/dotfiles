@@ -51,6 +51,15 @@
 - **Minimal changes**: Only modify code relevant to the current task.
 - **Commit atomicity**: One logical change per commit.
 
+# Parallel Execution
+
+- **Maximize subagent usage**: Use the Task tool extensively for parallel work. Spawn multiple agents in a single message when tasks are independent.
+- **Parallel exploration**: When investigating multiple files, symbols, or concepts, launch concurrent Explore agents rather than sequential searches.
+- **Parallel research**: When comparing approaches, libraries, or patterns, spawn agents to research each option simultaneously.
+- **Parallel implementation**: When implementing independent components, use agents to work on them concurrently.
+- **Think in parallel**: When reasoning about multiple aspects of a problem (tradeoffs, edge cases, alternatives), consider using agents to explore each dimension concurrently.
+- **Background agents**: Use `run_in_background: true` for long-running tasks that don't block the main workflow.
+
 # Research & Best Practices
 
 - **Always look up best practices**: Before implementing anything non-trivial, search for current best practices, idiomatic patterns, and modern tooling for the technology stack.

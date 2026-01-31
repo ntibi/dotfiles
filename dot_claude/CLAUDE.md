@@ -50,6 +50,7 @@
 
 - **Minimal changes**: Only modify code relevant to the current task.
 - **Commit atomicity**: One logical change per commit.
+- **Verify before acting**: Read files you're about to interact with. Don't assume behavior or requirements.
 
 # Parallel Execution
 

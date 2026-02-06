@@ -46,6 +46,10 @@
 - **Boundaries**: Clear separation between domains/modules.
 - **API-first**: Define contracts before implementation.
 
+# Decision Making
+
+- **Don't ask about implementation details**: Pick sensible defaults and make them configurable. Don't ask me to choose timeout values, buffer sizes, retry counts, etc.
+
 # Development Workflow
 
 - **Minimal changes**: Only modify code relevant to the current task.

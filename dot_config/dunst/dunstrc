@@ -18,9 +18,9 @@
     follow = mouse
 
     width = (0, 400)
-    height = 150
+    height = (0, 150)
     origin = top-right
-    offset = 8x8
+    offset = (8, 8)
 
     notification_limit = 5
 

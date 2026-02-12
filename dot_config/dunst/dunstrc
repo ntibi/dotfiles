@@ -135,7 +135,11 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = no
+    show_indicators = yes
+
+    mouse_left_click = do_action, close_current
+    mouse_right_click = close_all
+    mouse_middle_click = context
 
     ### Icons ###
 

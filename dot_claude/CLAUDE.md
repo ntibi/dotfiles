@@ -78,7 +78,8 @@
 ## Context7
 - Always use context7 when I need code generation, setup, configuration, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
 
-## Serena Memory
-- When working on a registered project, activate it via serena and read relevant memories at session start.
-- Update/create memories when learning new project patterns, conventions, or architecture.
-- Save useful context during the session for future reference.
+## Memory MCP
+- All memories (project-specific and personal) go through the Memory MCP (`mcp__memory__*` tools).
+- Tag project-specific memories with `project:<name>` (e.g. `project:infra`).
+- **MANDATORY**: At the start of every session and before beginning any task, ALWAYS retrieve relevant memories using `mcp__memory__recall_memory` or `mcp__memory__search_by_tag`. This is not optional. Extract keywords from the user's request, the current project, and the working directory to search for relevant context. Do this BEFORE responding to the user's first message.
+- Use `/mem` to persist useful context learned during a session.

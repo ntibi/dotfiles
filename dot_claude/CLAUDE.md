@@ -78,8 +78,13 @@
 ## Context7
 - Always use context7 when I need code generation, setup, configuration, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
 
-## Memory MCP
-- All memories (project-specific and personal) go through the Memory MCP (`mcp__memory__*` tools).
-- Tag project-specific memories with `project:<name>` (e.g. `project:infra`).
-- **MANDATORY**: At the start of every session and before beginning any task, ALWAYS retrieve relevant memories using `mcp__memory__recall_memory` or `mcp__memory__search_by_tag`. This is not optional. Extract keywords from the user's request, the current project, and the working directory to search for relevant context. Do this BEFORE responding to the user's first message.
-- Use `/mem` to persist useful context learned during a session.
+## Memory
+- **On session start**: Use `search_by_tag` with the working directory's project name (e.g. "memory", "infra") to load project-specific context. Use `recall_memory` with a query describing the user's first request to find relevant prior knowledge.
+- **Store important findings**: Use `store_memory` to persist knowledge valuable across sessions:
+  - User preferences and workflow habits
+  - Project-specific conventions and patterns
+  - Architectural decisions and their rationale
+  - Solutions to problems that took effort to find
+  - Recurring issues and their fixes
+- **Tag consistently**: Always tag with the project name. Add topic tags (e.g. "deployment", "debugging", "rust"). Check existing tags with `search_by_tag` before inventing new ones.
+- **Don't over-store**: Skip transient task context, information already in CLAUDE.md, and anything obvious from the codebase itself.

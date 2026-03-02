@@ -13,7 +13,9 @@
       "mcp__context7__*",
       "mcp__github__get*",
       "mcp__github__list_*",
-      "mcp__serena__*"
+      "mcp__serena__*",
+      "mcp__memory__recall_memory",
+      "mcp__memory__search_by_tag"
     ],
     "deny": [],
     "ask": [],

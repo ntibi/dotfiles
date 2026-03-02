@@ -42,11 +42,6 @@
       }
     ]
   },
-  "statusLine": {
-    "type": "command",
-    "command": "bun x ccusage@latest statusline --cost-source cc",
-    "padding": 0
-  },
   "enabledPlugins": {
     "lua-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
@@ -57,5 +52,9 @@
     "ralph-loop@claude-plugins-official": true,
     "slack@claude-plugins-official": true
   },
-  "alwaysThinkingEnabled": true
+  "alwaysThinkingEnabled": true,
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/ntibi/.claude/statusline.sh"
+  }
 }

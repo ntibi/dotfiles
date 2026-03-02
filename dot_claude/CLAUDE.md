@@ -87,4 +87,3 @@
   - Solutions to problems that took effort to find
   - Recurring issues and their fixes
 - **Tag consistently**: Always tag with the project name. Add topic tags (e.g. "deployment", "debugging", "rust"). Check existing tags with `search_by_tag` before inventing new ones.
-- **Don't over-store**: Skip transient task context, information already in CLAUDE.md, and anything obvious from the codebase itself.

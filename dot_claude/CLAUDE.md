@@ -78,12 +78,14 @@
 ## Context7
 - Always use context7 when I need code generation, setup, configuration, or library/API documentation. This means you should automatically use the Context7 MCP tools to resolve library id and get library docs without me having to explicitly ask.
 
-## Memory
-- **On session start**: Use `search_by_tag` with the working directory's project name (e.g. "memory", "infra") to load project-specific context. Use `recall_memory` with a query describing the user's first request to find relevant prior knowledge.
-- **Store important findings**: Use `store_memory` to persist knowledge valuable across sessions:
-  - User preferences and workflow habits
-  - Project-specific conventions and patterns
-  - Architectural decisions and their rationale
-  - Solutions to problems that took effort to find
-  - Recurring issues and their fixes
+## Memory — MANDATORY
+BEFORE doing anything else in a new session — before reading files, before responding, before planning — you MUST:
+1. Use `ToolSearch` to load memory tools (query: "+memory")
+2. Call `search_by_tag` with the working directory's project name (e.g. "memory", "infra")
+3. Call `recall_memory` with a query describing the user's first message
+
+This is not optional. Do it every single session, even if the task seems simple. The memory system only works if you actually read from it.
+
+- **Store aggressively**: After solving any non-trivial problem, learning a preference, making an architectural decision, or finding a tricky fix — call `store_memory` immediately. Do not wait for the session to end.
+- **Recall often**: When encountering a new subtask, bug, or decision point mid-session, call `recall_memory` again. Don't assume you already have all relevant context from the initial recall.
 - **Tag consistently**: Always tag with the project name. Add topic tags (e.g. "deployment", "debugging", "rust"). Check existing tags with `search_by_tag` before inventing new ones.

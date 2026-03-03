@@ -81,11 +81,10 @@
 ## Memory — MANDATORY
 BEFORE doing anything else in a new session — before reading files, before responding, before planning — you MUST:
 1. Use `ToolSearch` to load memory tools (query: "+memory")
-2. Call `search_by_tags` with `project:<name>` (e.g. "project:memory", "project:infra")
-3. Call `recall_memory` with a query describing the user's first message
+2. Call `session_start` with project tags (e.g. `["project:memory"]`) and a description of the user's task
 
 This is not optional. Do it every single session, even if the task seems simple. The memory system only works if you actually read from it.
 
-- **Store aggressively**: After solving any non-trivial problem, learning a preference, making an architectural decision, or finding a tricky fix — call `store_memory` immediately. Do not wait for the session to end.
-- **Recall often**: When encountering a new subtask, bug, or decision point mid-session, call `recall_memory` again. Don't assume you already have all relevant context from the initial recall.
-- **Tag consistently**: Always tag with `project:<name>` (e.g. "project:memory"). Add topic tags (e.g. "deployment", "debugging", "rust"). Check existing tags with `search_by_tags` before inventing new ones.
+- **Store aggressively**: After solving any non-trivial problem, learning a preference, making an architectural decision, or finding a tricky fix — call `store_memory` immediately. Do not wait for the session to end. Read the related memories it returns.
+- **Recall mid-session**: Call `recall_memory` whenever you are about to make a decision, encounter something unfamiliar, or context-switch to a different part of the codebase. If unsure whether to recall, recall.
+- **Tag consistently**: Always tag with `project:<name>` (e.g. "project:memory"). Add topic tags (e.g. "deployment", "debugging", "rust"). Use `universal` for memories that apply across all projects. Check existing tags with `search_by_tags` before inventing new ones.

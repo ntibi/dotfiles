@@ -15,7 +15,8 @@
       "mcp__github__list_*",
       "mcp__serena__*",
       "mcp__memory__recall_memory",
-      "mcp__memory__search_by_tag"
+      "mcp__memory__search_by_tags",
+      "mcp__memory__session_start"
     ],
     "deny": [],
     "ask": [],

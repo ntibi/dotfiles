@@ -64,4 +64,4 @@ fi
 
 echo "${PURPLE}${B}${MODEL}${R}${S}${GREY}${cwd_short}${R}"
 echo "${GREEN}\$${cost_str}${R}${S}${GREY}session ${R}${B}$(fmt_dur "$DUR_MS")${R}${S}${GREY}api ${R}${B}$(fmt_dur "$API_MS")${R}"
-echo "${BC}${B}${used_int}%${R}${S}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $win_int)${R}${S}${GREY}in ${R}${B}$(fmt_tok $in)${R}${S}${GREY}out ${R}${B}$(fmt_tok $out)${R}"
+echo "${BC}${B}${used_int}%${R}${S}${B}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $win_int)${R}${S}${GREY}i:${R}${B}$(fmt_tok $in)${R} ${GREY}o:${R}${B}$(fmt_tok $out)${R}"

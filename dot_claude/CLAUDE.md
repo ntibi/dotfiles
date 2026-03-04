@@ -81,7 +81,7 @@
 ## Memory — MANDATORY
 BEFORE doing anything else in a new session — before reading files, before responding, before planning — you MUST:
 1. Use `ToolSearch` to load memory tools (query: "+memory")
-2. Call `session_start` with project tags (e.g. `["project:memory"]`) and a description of the user's task
+2. Call `session_start` with tags (e.g. `["project:memory"]`) and a description of the user's task
 
 This is not optional. Do it every single session, even if the task seems simple. The memory system only works if you actually read from it.
 

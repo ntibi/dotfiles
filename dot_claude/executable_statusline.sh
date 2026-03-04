@@ -10,7 +10,11 @@ eval "$(echo "$input" | jq -r '[
   "TOT_IN="  + (.context_window.total_input_tokens // 0 | tostring | @sh),
   "TOT_OUT=" + (.context_window.total_output_tokens // 0 | tostring | @sh),
   "WIN="     + (.context_window.context_window_size // 0 | tostring | @sh),
-  "USED="    + (.context_window.used_percentage // 0 | tostring | @sh)
+  "USED="    + (.context_window.used_percentage // 0 | tostring | @sh),
+  "CUR_IN="  + (.context_window.current_usage.input_tokens // 0 | tostring | @sh),
+  "CUR_OUT=" + (.context_window.current_usage.output_tokens // 0 | tostring | @sh),
+  "CUR_CC="  + (.context_window.current_usage.cache_creation_input_tokens // 0 | tostring | @sh),
+  "CUR_CR="  + (.context_window.current_usage.cache_read_input_tokens // 0 | tostring | @sh)
 ] | join("\n")')" 2>/dev/null || exit 0
 
 fmt_tok() {
@@ -28,8 +32,8 @@ fmt_dur() {
   local ms=${1%.*}; ms=${ms:-0}
   local s=$((ms / 1000)) m h
   h=$((s / 3600)); m=$(( (s % 3600) / 60 )); s=$((s % 60))
-  if (( h > 0 )); then printf "%dh%02dm" "$h" "$m"
-  elif (( m > 0 )); then printf "%dm%02ds" "$m" "$s"
+  if (( h > 0 )); then printf "%dh %02dm " "$h" "$m"
+  elif (( m > 0 )); then printf "%dm %02ds" "$m" "$s"
   else printf "%ds" "$s"
   fi
 }
@@ -46,15 +50,18 @@ DGREY=$(tput setaf 240)
 S=" ${D}${DGREY}|${R} "
 
 used_int=${USED%.*}; used_int=${used_int:-0}
-total_tok=$(( ${TOT_IN%.*} + ${TOT_OUT%.*} ))
+win_int=${WIN%.*}; win_int=${win_int:-0}
+ctx_tok=$(( ${CUR_IN%.*} + ${CUR_OUT%.*} + ${CUR_CC%.*} + ${CUR_CR%.*} ))
 cost_str=$(printf "%.2f" "$COST")
 cwd_short="${CWD/"$HOME"/\~}"
+in=${TOT_IN%.*}; in=${in:-0}
+out=${TOT_OUT%.*}; out=${out:-0}
 
-if (( used_int < 50 )); then BC=$GREEN
-elif (( used_int < 80 )); then BC=$YELLOW
+if (( used_int < 75 )); then BC=$GREEN
+elif (( used_int < 90 )); then BC=$YELLOW
 else BC=$RED
 fi
 
 echo "${PURPLE}${B}${MODEL}${R}${S}${GREY}${cwd_short}${R}"
 echo "${GREEN}\$${cost_str}${R}${S}${GREY}session ${R}${B}$(fmt_dur "$DUR_MS")${R}${S}${GREY}api ${R}${B}$(fmt_dur "$API_MS")${R}"
-echo "${BC}${B}${used_int}%${S}$(fmt_tok $total_tok)${D}/${R}$(fmt_tok ${WIN%.*})${R}"
+echo "${BC}${B}${used_int}%${R}${S}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $win_int)${R}${S}${GREY}in ${R}${B}$(fmt_tok $in)${R}${S}${GREY}out ${R}${B}$(fmt_tok $out)${R}"

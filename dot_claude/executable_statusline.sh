@@ -49,13 +49,20 @@ GREY=$(tput setaf 248)
 DGREY=$(tput setaf 240)
 S=" ${D}${DGREY}|${R} "
 
-used_int=${USED%.*}; used_int=${used_int:-0}
 win_int=${WIN%.*}; win_int=${win_int:-0}
 ctx_tok=$(( ${CUR_IN%.*} + ${CUR_OUT%.*} + ${CUR_CC%.*} + ${CUR_CR%.*} ))
 cost_str=$(printf "%.2f" "$COST")
 cwd_short="${CWD/"$HOME"/\~}"
 in=${TOT_IN%.*}; in=${in:-0}
 out=${TOT_OUT%.*}; out=${out:-0}
+
+AUTOCOMPACT_BUFFER=${CLAUDE_AUTOCOMPACT_BUFFER:-33000}
+compact_limit=$(( win_int - AUTOCOMPACT_BUFFER ))
+if (( compact_limit > 0 )); then
+  used_int=$(( ctx_tok * 100 / compact_limit ))
+else
+  used_int=${USED%.*}; used_int=${used_int:-0}
+fi
 
 if (( used_int < 75 )); then BC=$GREEN
 elif (( used_int < 90 )); then BC=$YELLOW
@@ -64,4 +71,4 @@ fi
 
 echo "${PURPLE}${B}${MODEL}${R}${S}${GREY}${cwd_short}${R}"
 echo "${GREEN}\$${cost_str}${R}${S}${GREY}session ${R}${B}$(fmt_dur "$DUR_MS")${R}${S}${GREY}api ${R}${B}$(fmt_dur "$API_MS")${R}"
-echo "${BC}${B}${used_int}%${R}${S}${B}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $win_int)${R}${S}${GREY}i:${R}${B}$(fmt_tok $in)${R} ${GREY}o:${R}${B}$(fmt_tok $out)${R}"
+echo "${BC}${B}${used_int}%${R}${S}${B}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $compact_limit)${R}${S}${GREY}i:${R}${B}$(fmt_tok $in)${R} ${GREY}o:${R}${B}$(fmt_tok $out)${R}"

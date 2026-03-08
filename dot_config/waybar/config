@@ -6,7 +6,7 @@
     "fixed-center": true,
     "modules-left": ["niri/workspaces", "hyprland/workspaces", "custom/niri-scroll"],
     "modules-center": [],
-    "modules-right": ["custom/voxtype", "privacy", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan-ibm", "custom/fan-framework", "memory", "temperature", "battery", "clock", "tray", "custom/hypridle"],
+    "modules-right": ["privacy", "custom/voxtype", "pulseaudio", "backlight", "network", "custom/vpn", "cpu", "custom/cpugovernor", "custom/fan-ibm", "custom/fan-framework", "memory", "temperature", "battery", "clock", "tray", "custom/hypridle"],
 
     "niri/workspaces": {
         "format": "{icon}",

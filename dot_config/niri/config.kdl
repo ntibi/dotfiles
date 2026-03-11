@@ -495,8 +495,8 @@ binds {
     Mod+Shift+Apostrophe hotkey-overlay-title="screencast monitor" { set-dynamic-cast-monitor; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+Return hotkey-overlay-title="open terminal" { spawn "alacritty"; }
-    Mod+Shift+Return hotkey-overlay-title="open floating terminal" { spawn "alacritty" "--class" "floating"; }
+    Mod+Return hotkey-overlay-title="open terminal" { spawn "kitty"; }
+    Mod+Shift+Return hotkey-overlay-title="open floating terminal" { spawn "kitty" "--class" "floating"; }
     Mod+X hotkey-overlay-title="run application: rofi" { spawn "rofi" "-show" "drun"; }
     XF86AudioMedia hotkey-overlay-title="toggle scratchpad" { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }
     Home hotkey-overlay-title="toggle scratchpad" { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }

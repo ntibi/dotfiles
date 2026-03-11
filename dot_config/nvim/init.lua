@@ -187,7 +187,8 @@ plugins = {
         config = function()
             require('diffview').setup()
         end,
-    }
+    },
+    'hjson/vim-hjson'
 }
 
 require("lazy").setup(plugins)

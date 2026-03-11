@@ -1,0 +1,178 @@
+#!/usr/bin/env bash
+# claude mcp add -s user kitty-terminal -- ~/.local/bin/kitty-terminal-mcp
+set -euo pipefail
+
+STATE="/tmp/kitty-mcp-state-$$"
+trap 'rm -f "$STATE"' EXIT
+
+send() {
+    printf '%s\n' "$1"
+}
+
+all_kitty_sockets() {
+    if [[ -n "${KITTY_LISTEN_ON:-}" ]]; then
+        echo "$KITTY_LISTEN_ON"
+    fi
+    for f in /tmp/kitty-mcp-*; do
+        [ -S "$f" ] && echo "unix:$f"
+    done
+}
+
+handle_pick_terminal() {
+    local id=$1
+
+    local picked
+    picked=$(niri msg -j pick-window 2>&1) || {
+        send "$(jq -nc --argjson id "$id" --arg err "picker cancelled or failed: $picked" '{
+            jsonrpc: "2.0", id: $id,
+            result: { content: [{ type: "text", text: $err }], isError: true }
+        }')"
+        return
+    }
+
+    local picked_pid picked_title
+    picked_pid=$(printf '%s' "$picked" | jq -r '.pid')
+    picked_title=$(printf '%s' "$picked" | jq -r '.title')
+
+    local found_socket="" found_wid=""
+    while IFS= read -r socket; do
+        local kitty_windows
+        kitty_windows=$(kitten @ --to "$socket" ls 2>/dev/null) || continue
+
+        local shell_pids
+        shell_pids=$(printf '%s' "$kitty_windows" | jq -r '[.. | objects | select(.pid? and .id?)] | .[] | "\(.id) \(.pid)"')
+
+        while IFS=' ' read -r wid shell_pid; do
+            [[ -z "$shell_pid" ]] && continue
+            local ppid
+            ppid=$(awk '{print $4}' "/proc/$shell_pid/stat" 2>/dev/null) || continue
+            if [[ "$ppid" == "$picked_pid" ]]; then
+                found_socket="$socket"
+                found_wid="$wid"
+                break 2
+            fi
+        done <<< "$shell_pids"
+    done < <(all_kitty_sockets)
+
+    if [[ -z "$found_wid" ]]; then
+        send "$(jq -nc --argjson id "$id" --arg title "$picked_title" '{
+            jsonrpc: "2.0", id: $id,
+            result: { content: [{ type: "text", text: ("selected window \"\($title)\" is not a kitty window") }], isError: true }
+        }')"
+        return
+    fi
+
+    printf '%s\n%s\n' "$found_socket" "$found_wid" > "$STATE"
+
+    send "$(jq -nc --argjson id "$id" --arg title "$picked_title" --argjson wid "$found_wid" '{
+        jsonrpc: "2.0", id: $id,
+        result: { content: [{ type: "text", text: "selected kitty window \($wid) (\"\($title)\")" }] }
+    }')"
+}
+
+handle_read_terminal() {
+    local id=$1 args=$2
+
+    if [[ ! -f "$STATE" ]]; then
+        send "$(jq -nc --argjson id "$id" '{
+            jsonrpc: "2.0", id: $id,
+            result: { content: [{ type: "text", text: "no terminal selected. use pick_terminal first." }], isError: true }
+        }')"
+        return
+    fi
+
+    local socket wid extent lines
+    { read -r socket; read -r wid; } < "$STATE"
+    extent=$(printf '%s' "$args" | jq -r '.extent // "screen"')
+    lines=$(printf '%s' "$args" | jq -r '.lines // empty')
+
+    local text
+    text=$(kitten @ --to "$socket" get-text --match "id:$wid" --extent "$extent" 2>&1) || {
+        send "$(jq -nc --argjson id "$id" --arg err "failed to read terminal: $text" '{
+            jsonrpc: "2.0", id: $id,
+            result: { content: [{ type: "text", text: $err }], isError: true }
+        }')"
+        return
+    }
+
+    if [[ -n "$lines" ]]; then
+        text=$(printf '%s' "$text" | tail -n "$lines")
+    fi
+
+    send "$(jq -nc --argjson id "$id" --arg text "$text" '{
+        jsonrpc: "2.0", id: $id,
+        result: { content: [{ type: "text", text: $text }] }
+    }')"
+}
+
+while IFS= read -r line; do
+    [[ -z "$line" ]] && continue
+
+    method=$(printf '%s' "$line" | jq -r '.method // empty')
+    id=$(printf '%s' "$line" | jq '.id')
+
+    case "$method" in
+        initialize)
+            send "$(jq -nc --argjson id "$id" '{
+                jsonrpc: "2.0", id: $id,
+                result: {
+                    protocolVersion: "2024-11-05",
+                    capabilities: { tools: {} },
+                    serverInfo: { name: "kitty-terminal", version: "0.1.0" }
+                }
+            }')"
+            ;;
+        notifications/initialized) ;;
+        tools/list)
+            send "$(jq -nc --argjson id "$id" '{
+                jsonrpc: "2.0", id: $id,
+                result: { tools: [
+                    {
+                        name: "pick_terminal",
+                        description: "open a visual picker — click on a kitty terminal window to select it as the read target",
+                        inputSchema: { type: "object", properties: {} }
+                    },
+                    {
+                        name: "read_terminal",
+                        description: "read text from the selected kitty terminal window. use pick_terminal first to select one.",
+                        inputSchema: {
+                            type: "object",
+                            properties: {
+                                extent: {
+                                    type: "string",
+                                    description: "what to read: screen (visible), all (scrollback), last_cmd_output, last_non_empty_output",
+                                    enum: ["screen", "all", "last_cmd_output", "last_non_empty_output"],
+                                    default: "screen"
+                                },
+                                lines: {
+                                    type: "number",
+                                    description: "only return the last N lines"
+                                }
+                            }
+                        }
+                    }
+                ]}
+            }')"
+            ;;
+        tools/call)
+            tool=$(printf '%s' "$line" | jq -r '.params.name')
+            args=$(printf '%s' "$line" | jq -c '.params.arguments // {}')
+            case "$tool" in
+                pick_terminal) handle_pick_terminal "$id" ;;
+                read_terminal) handle_read_terminal "$id" "$args" ;;
+                *)
+                    send "$(jq -nc --argjson id "$id" --arg t "$tool" '{
+                        jsonrpc: "2.0", id: $id,
+                        result: { content: [{ type: "text", text: "unknown tool: \($t)" }], isError: true }
+                    }')"
+                    ;;
+            esac
+            ;;
+        *)
+            [[ "$id" != "null" ]] && send "$(jq -nc --argjson id "$id" '{
+                jsonrpc: "2.0", id: $id,
+                error: { code: -32601, message: "method not found" }
+            }')"
+            ;;
+    esac
+done

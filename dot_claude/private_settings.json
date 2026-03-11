@@ -10,7 +10,7 @@
       "WebFetch",
       "WebSearch",
       "Search*",
-      "mcp__context7__*",
+      "mcp__plugin_context7__*",
       "mcp__github__get*",
       "mcp__github__list_*",
       "mcp__serena__*",

@@ -11,8 +11,8 @@ history = 100000
 [font]
 normal = { family = "DejaVuSansM Nerd Font Mono", style = "Regular" }
 bold = { family = "DejaVuSansM Nerd Font Mono", style = "Bold" }
-italic = { family = "DejaVuSansM Nerd Font Mono", style = "Italic" }
-bold_italic = { family = "DejaVuSansM Nerd Font Mono", style = "Bold Italic" }
+italic = { family = "DejaVuSansM Nerd Font Mono", style = "Oblique" }
+bold_italic = { family = "DejaVuSansM Nerd Font Mono", style = "Bold Oblique" }
 size = 11.0
 
 [bell]

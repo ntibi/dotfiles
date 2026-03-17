@@ -1,6 +1,45 @@
 #!/bin/bash
 input=$(cat)
 
+USAGE_CACHE="/tmp/claude-usage-cache.json"
+USAGE_TTL=60
+
+fetch_usage() {
+  local token creds
+  creds="$HOME/.claude/.credentials.json"
+  [[ -f "$creds" ]] || return
+  token=$(jq -r '.claudeAiOauth.accessToken // empty' "$creds" 2>/dev/null)
+  [[ -n "$token" ]] || return
+  local resp
+  resp=$(curl -s --max-time 3 "https://api.anthropic.com/api/oauth/usage" \
+    -H "Authorization: Bearer $token" \
+    -H "anthropic-beta: oauth-2025-04-20" \
+    -H "Content-Type: application/json" 2>/dev/null)
+  [[ -n "$resp" ]] || return
+  local now=$(date +%s)
+  echo "$resp" | jq --argjson ts "$now" '. + {cached_at: $ts}' > "$USAGE_CACHE" 2>/dev/null
+}
+
+read_usage() {
+  U5H=""; U7D=""
+  if [[ -f "$USAGE_CACHE" ]]; then
+    local cached_ts=$(jq -r '.cached_at // 0' "$USAGE_CACHE" 2>/dev/null)
+    local now=$(date +%s)
+    if (( now - cached_ts > USAGE_TTL )); then
+      fetch_usage
+    fi
+  else
+    fetch_usage
+  fi
+  [[ -f "$USAGE_CACHE" ]] || return
+  U5H=$(jq -r '.five_hour.utilization // empty' "$USAGE_CACHE" 2>/dev/null)
+  U5R=$(jq -r '.five_hour.resets_at // empty' "$USAGE_CACHE" 2>/dev/null)
+  U7D=$(jq -r '.seven_day.utilization // empty' "$USAGE_CACHE" 2>/dev/null)
+  U7R=$(jq -r '.seven_day.resets_at // empty' "$USAGE_CACHE" 2>/dev/null)
+}
+
+read_usage
+
 eval "$(echo "$input" | jq -r '[
   "MODEL="   + (.model.display_name // "?" | @sh),
   "CWD="     + (.cwd // "" | @sh),
@@ -38,6 +77,20 @@ fmt_dur() {
   fi
 }
 
+fmt_reset() {
+  local reset_at=$1
+  [[ -n "$reset_at" ]] || return
+  local reset_ts=$(date -d "$reset_at" +%s 2>/dev/null)
+  [[ -n "$reset_ts" ]] || return
+  local now=$(date +%s)
+  local diff=$(( reset_ts - now ))
+  (( diff < 0 )) && diff=0
+  local h=$(( diff / 3600 )) m=$(( (diff % 3600) / 60 ))
+  if (( h > 0 )); then printf "%dh%02dm" "$h" "$m"
+  else printf "%dm" "$m"
+  fi
+}
+
 R=$(tput sgr0)
 B=$(tput bold)
 D=$(tput dim)
@@ -71,4 +124,23 @@ fi
 
 echo "${PURPLE}${B}${MODEL}${R}${S}${GREY}${cwd_short}${R}"
 echo "${GREEN}\$${cost_str}${R}${S}${GREY}session ${R}${B}$(fmt_dur "$DUR_MS")${R}${S}${GREY}api ${R}${B}$(fmt_dur "$API_MS")${R}"
+usage_str=""
+if [[ -n "$U5H" ]]; then
+  u5=${U5H%.*}; u5=${u5:-0}
+  if (( u5 < 50 )); then UC5=$GREEN; elif (( u5 < 80 )); then UC5=$YELLOW; else UC5=$RED; fi
+  r5=$(fmt_reset "$U5R")
+  r5_str=""
+  [[ -n "$r5" ]] && r5_str="${D}(${r5})${R}"
+  usage_str="${GREY}5h${R}${r5_str}${GREY} ${R}${UC5}${B}${u5}%${R}"
+fi
+if [[ -n "$U7D" ]]; then
+  u7=${U7D%.*}; u7=${u7:-0}
+  if (( u7 < 50 )); then UC7=$GREEN; elif (( u7 < 80 )); then UC7=$YELLOW; else UC7=$RED; fi
+  r7=$(fmt_reset "$U7R")
+  r7_str=""
+  [[ -n "$r7" ]] && r7_str="${D}(${r7})${R}"
+  usage_str="${usage_str}${S}${GREY}7d${R}${r7_str}${GREY} ${R}${UC7}${B}${u7}%${R}"
+fi
+
 echo "${BC}${B}${used_int}%${R}${S}${B}$(fmt_tok $ctx_tok)${D}/${R}$(fmt_tok $compact_limit)${R}${S}${GREY}i:${R}${B}$(fmt_tok $in)${R} ${GREY}o:${R}${B}$(fmt_tok $out)${R}"
+echo "${usage_str}"

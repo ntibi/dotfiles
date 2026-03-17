@@ -85,8 +85,9 @@ fmt_reset() {
   local now=$(date +%s)
   local diff=$(( reset_ts - now ))
   (( diff < 0 )) && diff=0
-  local h=$(( diff / 3600 )) m=$(( (diff % 3600) / 60 ))
-  if (( h > 0 )); then printf "%dh%02dm" "$h" "$m"
+  local d=$(( diff / 86400 )) h=$(( (diff % 86400) / 3600 )) m=$(( (diff % 3600) / 60 ))
+  if (( d > 0 )); then printf "%dd%02dh" "$d" "$h"
+  elif (( h > 0 )); then printf "%dh%02dm" "$h" "$m"
   else printf "%dm" "$m"
   fi
 }

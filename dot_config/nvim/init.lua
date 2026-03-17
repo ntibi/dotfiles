@@ -141,7 +141,30 @@ plugins = {
             vim.g.vimtex_view_method = "zathura"
         end
     },
-    'OXY2DEV/markview.nvim',
+    {
+        'OXY2DEV/markview.nvim',
+        ft = { 'markdown' },
+        opts = {
+            markdown = {
+                tables = {
+                    enable = true,
+                    block_decorator = true,
+                    use_virt_lines = true,
+                    parts = {
+                        top = { '╭', '─', '╮', '┬' },
+                        header = { '│', '│', '│' },
+                        separator = { '├', '─', '┤', '┼' },
+                        row = { '│', '│', '│' },
+                        bottom = { '╰', '─', '╯', '┴' },
+                        overlap = { '┝', '━', '┥', '┿' },
+                        align_left = '╼',
+                        align_right = '╾',
+                        align_center = { '╴', '╶' },
+                    },
+                },
+            },
+        },
+    },
     {
         'akinsho/bufferline.nvim',
         version = '*',

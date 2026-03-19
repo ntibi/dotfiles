@@ -7,6 +7,7 @@
 - **Never guess**: State facts only. If uncertain, say so explicitly rather than fabricating or speculating.
 - **No comments in code**: Unless explicitly requested. Keep code self-documenting through clear naming.
   - Keep already existing comments unless explicitly asked to remove them.
+- **No em dashes**: Never use em dashes (—) or double hyphens as em dashes (--) in any output.
 
 # Code Quality Standards
 

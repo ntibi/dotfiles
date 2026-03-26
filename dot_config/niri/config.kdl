@@ -498,8 +498,8 @@ binds {
     Mod+Return hotkey-overlay-title="open terminal" { spawn "alacritty"; }
     Mod+Shift+Return hotkey-overlay-title="open floating terminal" { spawn "alacritty" "--class" "floating"; }
     Mod+X hotkey-overlay-title="run application: rofi" { spawn "rofi" "-show" "drun"; }
-    XF86AudioMedia hotkey-overlay-title="toggle scratchpad" { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }
-    Home hotkey-overlay-title="toggle scratchpad" { spawn-sh "~/.config/niri/scripts/scratchpad.sh"; }
+    XF86AudioMedia hotkey-overlay-title="toggle scratchpad" { spawn-sh "flock -n /tmp/scratchpad.lock ~/.config/niri/scripts/scratchpad.sh"; }
+    Home hotkey-overlay-title="toggle scratchpad" { spawn-sh "flock -n /tmp/scratchpad.lock ~/.config/niri/scripts/scratchpad.sh"; }
 
     Ctrl+Space repeat=false { spawn "voxtype" "record" "toggle"; }
 

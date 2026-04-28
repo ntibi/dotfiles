@@ -26,15 +26,73 @@
       "mcp__memory__recall_memory",
       "mcp__memory__search_by_tags",
       "mcp__memory__session_start",
-      "mcp__kitty-terminal__read_terminal",
       "mcp__sentry__*",
       "mcp__plugin_slack_slack__slack_search_*",
       "mcp__plugin_slack_slack__slack_read_*",
-      "mcp__claude_ai_Google_Calendar__gcal_list_*"
+      "mcp__claude_ai_Google_Calendar__gcal_list_*",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__github__search_code",
+      "mcp__github__get_file_contents",
+      "mcp__github__search_issues",
+      "mcp__github__list_issues",
+      "mcp__github__search_repositories",
+      "Bash(cat:*)",
+      "mcp__github__issue_read",
+      "mcp__github__list_commits",
+      "mcp__serena__get_current_config",
+      "mcp__serena__list_memories",
+      "Bash(curl:*)",
+      "Bash(time sleep:*)",
+      "Bash(python3:*)",
+      "Bash(gh api:*)",
+      "mcp__grafana__list_datasources",
+      "Bash(timeout 2 strace:*)",
+      "Bash(ls:*)",
+      "Bash(gh repo list:*)",
+      "Bash(top:*)",
+      "Bash(swapon:*)",
+      "Bash(iostat:*)",
+      "Bash(dmesg:*)",
+      "Bash(journalctl:*)",
+      "Bash(lscpu:*)",
+      "Bash(gh search:*)",
+      "Bash(gh issue view:*)",
+      "mcp__github__pull_request_read",
+      "Bash(gh pr:*)",
+      "mcp__memory__store_memory",
+      "mcp__memory__list_memories",
+      "mcp__memory__search_by_tag",
+      "Bash(aws logs describe-log-groups --log-group-name-prefix /ecs/analyzer 2>&1 && aws logs describe-log-groups --log-group-name-prefix analyzer 2>&1)",
+      "Bash(jq:*)",
+      "Bash(aws ecs:*)",
+      "mcp__tools__current_time",
+      "WebFetch(domain:api.github.com)",
+      "Bash(ps aux:*)",
+      "Bash(ps:*)",
+      "Bash(glxinfo:*)",
+      "WebFetch(domain:ghcr.io)",
+      "mcp__sentry__find_organizations",
+      "mcp__sentry__find_projects",
+      "mcp__sentry__search_issues",
+      "mcp__sentry__search_events",
+      "mcp__sentry__get_issue_details",
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebFetch(domain:github.com)",
+      "mcp__plugin_slack_slack__slack_read_thread",
+      "mcp__plugin_slack_slack__slack_search_public_and_private",
+      "mcp__github__get_me",
+      "mcp__plugin_Notion_notion__notion-search",
+      "mcp__plugin_slack_slack__slack_search_channels",
+      "mcp__plugin_slack_slack__slack_read_channel",
+      "mcp__plugin_Notion_notion__notion-fetch",
+      "WebFetch(domain:dynamodb.us-east-1.amazonaws.com)",
+      "mcp__plugin_slack_slack__slack_search_users"
     ],
     "deny": [],
     "ask": [],
-    "defaultMode": "default"
+    "defaultMode": "plan"
   },
   "hooks": {
     "PermissionRequest": [
@@ -57,7 +115,8 @@
           }
         ]
       }
-    ]
+    ],
+    "PreToolUse": []
   },
   "statusLine": {
     "type": "command",
@@ -74,9 +133,27 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
     "code-review@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "agent-sdk-dev@claude-plugins-official": true
+    "agent-sdk-dev@claude-plugins-official": true,
+    "notion@claude-plugins-official": true,
+    "deploy-on-aws@claude-plugins-official": true,
+    "linear@claude-plugins-official": true
+  },
+  "sandbox": {
+    "network": {
+      "allowUnixSockets": [
+        "~/.gnupg/S.gpg-agent",
+        "~/.gnupg/S.gpg-agent.extra"
+      ]
+    },
+    "filesystem": {
+      "allowWrite": [
+        "~/.gnupg"
+      ]
+    }
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoDreamEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
   "voiceEnabled": true
 }

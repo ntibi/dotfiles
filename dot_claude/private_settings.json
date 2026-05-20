@@ -154,6 +154,10 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "voiceEnabled": true

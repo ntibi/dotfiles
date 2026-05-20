@@ -8,6 +8,7 @@
 - **No comments in code**: Unless explicitly requested. Keep code self-documenting through clear naming.
   - Keep already existing comments unless explicitly asked to remove them.
 - **No em dashes**: Never use em dashes (—) or double hyphens as em dashes (--) in any output.
+- **Always link PRs**: Whenever you reference a pull request in output (by number, title, or description), include its full URL (e.g. `https://github.com/<org>/<repo>/pull/<n>`). If you don't have the URL handy, fetch it (e.g. `gh pr view <n> --json url`) rather than mentioning the PR without a link.
 
 # Code Quality Standards
 

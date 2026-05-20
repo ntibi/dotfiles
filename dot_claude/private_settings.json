@@ -92,7 +92,7 @@
     ],
     "deny": [],
     "ask": [],
-    "defaultMode": "plan"
+    "defaultMode": "auto"
   },
   "hooks": {
     "PermissionRequest": [

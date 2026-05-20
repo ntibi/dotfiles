@@ -160,5 +160,6 @@
   },
   "autoDreamEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "skipAutoPermissionPrompt": true,
   "voiceEnabled": true
 }

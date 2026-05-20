@@ -54,8 +54,10 @@
 
 # Development Workflow
 
+- **Orient before acting**: get context before doing anything substantive. Recall relevant memory, read the files you're about to touch, and check the state of the system (git branch, processes, configs). Don't act on assumptions when a 30-second check would replace them with facts.
 - **Minimal changes**: Only modify code relevant to the current task.
 - **Commit atomicity**: One logical change per commit.
+- **Branch state before commit**: before committing on an existing branch, run `git fetch origin` and check (a) whether the branch is up-to-date with `origin/main` (rebase or merge first if behind), and (b) whether the branch is already merged into `main` (`git branch --merged origin/main`). If it's already merged, stop and ask before adding more commits.
 - **Verify before acting**: Read files you're about to interact with. Don't assume behavior or requirements.
 
 # Parallel Execution

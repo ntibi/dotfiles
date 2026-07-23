@@ -69,11 +69,15 @@ plugins = {
     },
     {
         'nvim-treesitter/nvim-treesitter',
+        branch = 'main',
+        lazy = false,
         build = ':TSUpdate',
-        opts = {
-            ensure_installed = { 'go', 'lua', 'rust', 'javascript', 'typescript', 'c', 'cpp', 'python', 'yaml', 'bash', 'json', 'css', 'html', 'wgsl', 'asm', 'make', 'vim', 'tmux', 'toml', 'markdown', 'terraform', 'cuda', 'glsl', 'jq', 'helm', 'gpg', 'csv', 'dockerfile', 'gdscript', 'sql' },
-            highlight = { enable = true },
-        },
+        config = function()
+            require('nvim-treesitter').install({ 'go', 'lua', 'rust', 'javascript', 'typescript', 'c', 'cpp', 'python', 'yaml', 'bash', 'json', 'css', 'html', 'wgsl', 'asm', 'make', 'vim', 'tmux', 'toml', 'markdown', 'markdown_inline', 'terraform', 'cuda', 'glsl', 'jq', 'helm', 'gpg', 'csv', 'dockerfile', 'gdscript', 'sql' })
+            vim.api.nvim_create_autocmd('FileType', {
+                callback = function(args) pcall(vim.treesitter.start, args.buf) end,
+            })
+        end,
     },
     {
         'itchyny/lightline.vim',

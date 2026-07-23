@@ -162,7 +162,7 @@ layout {
         // How many logical pixels the ring extends out from the windows.
         width 1
 
-        active-color "#6a7a8a"
+        active-color "#aaaaaa"
 
         // Colors can be set in a variety of ways:
         // - CSS named colors: "red"
@@ -385,7 +385,7 @@ window-rule {
     match is-window-cast-target=true
 
     focus-ring {
-        off
+        on
     }
 
     border {
@@ -691,4 +691,8 @@ binds {
 
     Mod+P hotkey-overlay-title="power off monitor" { power-off-monitors; }
     Mod+Shift+P hotkey-overlay-title="power off monitor & lock" { spawn-sh "niri msg action power-off-monitors && hyprlock"; }
+
+    Mod+Shift+MouseLeft { spawn "niri-cast-indicator" "toggle"; }
 }
+
+include "screencast.kdl"
